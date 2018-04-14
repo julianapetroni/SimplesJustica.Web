@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Editar parte</title>
+<title>Editar dados</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
@@ -73,39 +80,79 @@ button:hover {
     }
 }
 </style>
+<script>
+    function validateForm() {
+    var x = document.forms["myForm"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Este não é um e-mail válido");
+        return false;
+    }
+}
+</script>
 </head>
 <body>
 
-<form action="/action_page.html" style="border:1px solid #ccc">
+<!-- Navbar with dropdown-->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="home.html">Simples Justiça</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="home.html">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Qualificação <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Autor</a></li>
+          <li><a href="cadastrarEmpresa.html">Réu - pessoa jurídica</a></li>
+          <li><a href="cadastrarPessoa.html">Réu - pessoa física</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Fatos</a></li>
+      <li><a href="#">Direito</a></li> 
+      <li><a href="#">Pedido</a></li>
+      <li><a href="home.html">Sair</a></li>  
+    </ul>
+  </div>
+</nav>
+<div class="container">
+<!-- Navbar´s end-->
+</div>
+
+<form style="border:1px solid #ccc">
   <div class="container">
     <h1>Empresa Cadastrada</h1>
     <p></p>
     <hr>
 
-    <label for="nomeFantasia"><b>Nome fantasia</b></label>
+    <label for="nomeFantasia"><b>Nome fantasia*</b></label>
     <input type="text" value="Extra Hipermercado" name="nomeFantasia" required>
 
     <label for="razaoSocial"><b>Razão Social</b></label>
-    <input type="text" value="Companhia Brasileira de Distribuicao" name="razaoSocial" required>
+    <input type="text" value="Companhia Brasileira de Distribuicao" name="razaoSocial">
 
     <label for="cnpj"><b>CNPJ</b></label>
-    <input type="text" value="47.508.411/0225-59" name="cnpj" required>
+    <input type="text" value="47.508.411/0225-59" name="cnpj">
     
     <label for="inscrEstadual"><b>Inscrição Estadual</b></label>
-    <input type="text" value="108.354.656.114" name="inscrEstadual" required>
+    <input type="text" value="108.354.656.114" name="inscrEstadual">
     
-    <label for="endereco"><b>Endereço</b></label>
+    <label for="endereco"><b>Endereço*</b></label>
     <input type="text" value="Av Portugal, S/N, Quadra L-22 Setor Marista, Goiania GO, CEP 74150-030 Brasil" name="endereco" required>
     
+    <form name="myForm" action="/action_page.php" onsubmit="return validateForm();" method="post">
+    <b>Email</b> <input type="text" name="email" value="sac@extra.com.br" disabled>
+    </form>
     
 
     <div class="clearfix">
-      <button type="submit" class="deletebtn" formaction="parteContraria.html">Deletar</button>
-      <button type="submit" class="savebtn" formaction="#">Salvar</button>
+      <button type="reset" class="deletebtn">Deletar</button>
+      <button type="submit" class="savebtn" formaction="empresaCadastrada.html">Salvar</button>
       
     </div>
   </div>
 </form>
-
+<h6>*Campos com asterisco são obrigatórios</h6>
 </body>
 </html>

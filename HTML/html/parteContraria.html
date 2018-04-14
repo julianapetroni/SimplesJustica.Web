@@ -2,8 +2,12 @@
 <html>
 <head>
 <title>Parte Contraria</title>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 body, html {
     height: 100%;
@@ -39,15 +43,8 @@ body, html {
 
 .btn:hover {
     opacity: 1;
-}
-    <style>
-body {
-    font-family: Arial;
-}
+}    
 
-* {
-    box-sizing: border-box;
-}
 
 form.example input[type=text] {
     padding: 10px;
@@ -80,15 +77,41 @@ form.example::after {
     display: table;
 }
 </style>
-
-
 </head>
+    
 <body>
+<!-- Navbar with dropdown-->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="home.html">Simples Justiça</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="home.html">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Qualificação <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Autor</a></li>
+          <li><a href="cadastrarEmpresa.html">Réu - pessoa jurídica</a></li>
+          <li><a href="cadastrarPessoa.html">Réu - pessoa física</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Fatos</a></li>
+      <li><a href="#">Direito</a></li> 
+      <li><a href="#">Pedido</a></li>
+      <li><a href="home.html">Sair</a></li>  
+    </ul>
+  </div>
+</nav>
+<div class="container">
+<!-- Navbar´s end-->
+</div>
 
+    
+    
 <h1>Parte contrária</h1>
 <h5>Procure a pessoa ou empresa contra a qual você deseja reclamar</h5>
 <div class="bg-img">
-  <form action="/action_page.php">
+  <form>
     <div class="container">
       <h1>Contra quem?</h1>
 
@@ -96,12 +119,38 @@ form.example::after {
       <form>
           <p></p>
       </form>
-        
-      <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+      
+      
+      <form class="example" style="margin:auto;max-width:300px">
       <input type="text" placeholder="Procurar.." name="search2">
-      <button type="submit" formaction="listPage.html"><i class="fa fa-search"></i></button>
+      <button type="button" ><i class="fa fa-search"button data-toggle="modal" data-target="#myModal"></i></button>
+         <!-- Modal -->
+
+                 
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Simulação do acesso ao BD</h4>
+            
+        </div>
+        <div class="modal-body">
+          <p>Clique para ver o caminho da pessoa com e sem cadastro</p>
+            
+             </div>
+        <div class="modal-footer">
+             <button type="submit" class="btn default" formaction="listPage.html">Sem</button>
+            <button type="submit" class="btn btn-default" formaction="empresaCadastrada.html">Com</button>
+          
+        </div>
+      </div>
+    </div>
+  </div> 
+          
       </form>
       <p></p>
+        
        
     </div>
   </form>

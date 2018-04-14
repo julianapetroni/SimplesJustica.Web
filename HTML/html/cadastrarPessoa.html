@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cadastrar</title>
+<title>Cadastro de pessoas</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
@@ -73,26 +80,63 @@ button:hover {
     }
 }
 </style>
+<script>
+    function validateForm() {
+    var x = document.forms["myForm"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Este não é um e-mail válido");
+        return false;
+    }
+}
+</script>
 </head>
 <body>
 
+<!-- Navbar with dropdown-->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="home.html">Simples Justiça</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="home.html">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Qualificação <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Autor</a></li>
+          <li><a href="cadastrarEmpresa.html">Réu - pessoa jurídica</a></li>
+          <li><a href="cadastrarPessoa.html">Réu - pessoa física</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Fatos</a></li>
+      <li><a href="#">Direito</a></li> 
+      <li><a href="#">Pedido</a></li>
+      <li><a href="home.html">Sair</a></li>  
+    </ul>
+  </div>
+</nav>
+<div class="container">
+<!-- Navbar´s end-->
+</div>
+    
 <form method="get" style="border:1px solid #ccc">
   <div class="container">
     <h1>Cadastrar pessoa</h1>
     <p></p>
     <hr>
 
-    <label for="nome"><b>Nome completo</b></label>
+    <label for="nome"><b>Nome completo*</b></label>
     <input type="text" placeholder="Digite aqui" name="nome" required>
 
     <label for="nacionalidade"><b>Nacionalidade</b></label>
     <input type="text" placeholder="Digite aqui" name="nacionalidade">
       
-    <label for="estCivil"><b>Estado Civil</b></label>
+    <label for="estCivil"><b>Estado Civil*</b></label>
     
   <form>
     <label class="radio-inline">
-      <input type="radio" name="optradio">Solteiro
+      <input type="radio" name="optradio" checked>Solteiro
     </label>
     <label class="radio-inline">
       <input type="radio" name="optradio">Casado
@@ -107,7 +151,7 @@ button:hover {
  
 
     <p></p>
-    <label for="profissao"><b>Profissão</b></label>
+    <label for="profissao"><b>Profissão*</b></label>
     <input type="text" placeholder="Digite aqui" name="profissao" required>
 
     <label for="cpf"><b>CPF</b></label>
@@ -116,19 +160,23 @@ button:hover {
     <label for="RG"><b>RG</b></label>
     <input type="text" placeholder="Digite aqui" name="RG">
     
-    <label for="endereco"><b>Endereço</b></label>
+    <label for="endereco"><b>Endereço*</b></label>
     <input type="text" placeholder="Digite aqui" name="endereco" required>
     
     <label for="telefone"><b>Telefone</b></label>
     <input type="text" placeholder="Digite aqui" name="telefone">
     
+    <form name="myForm" action="/action_page.php" onsubmit="return validateForm();" method="post">
+    <b>Email</b> <input type="text" name="email" placeholder="Digite aqui" >
+    </form>
 
     <div class="clearfix">
-        <button type="submit" class="deletebtn" onClick="window.location='parteContraria.html';" >Cancelar</button>
+        <button type="reset" class="deletebtn" >Limpar</button>
 
         <button type="submit" class="savebtn" formaction="editPage.html">Salvar</button>
       
     </div>
+   <h6>*Campos com asterisco são obrigatórios</h6>
   </div>
 </form>
 
