@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Company = mongoose.model("Company");
 
 exports.get = (req, res, next) => {
-	Company.find({}, "nameAlias address lineOfBusinessId")
+	Company.find({}, 'nameAlias email cnpj ie')
 		.then(data => {
 			res.status(200).send(data);
 		})
@@ -12,7 +12,7 @@ exports.get = (req, res, next) => {
 };
 
 exports.getById = (req, res, next) => {
-	Company.findById(req.params.id)
+	Company.findById(req.params.id).populate('lineOfBusiness')
 		.then(data => {
 			res.status(200).send(data);
 		})
@@ -45,7 +45,7 @@ exports.put = (req, res, next) => {
 				name: req.body.name,
 				email: req.body.email,
 				address: req.body.address,
-				lineOfBusinessId: req.body.lineOfBusinessId
+				lineOfBusiness: req.body.lineOfBusiness
 			}
 		})
 		.then(data => {

@@ -53,9 +53,14 @@ const CompanySchema = new Schema({
 			required: true
 		}
 	},
-	lineOfBusinessId: {
-		type: Number,
-		required: true
+	lineOfBusiness: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'LineOfBusiness'
+	},
+	createdDate: {
+		type: Date,
+		required: true,
+		default: Date.now
 	}
 });
 

@@ -30,8 +30,10 @@ module.exports = (app, config) => {
 	app.use(methodOverride());
 
 	const company = require('../app/routes/company-route');
+	const lineOfBusiness = require('../app/routes/lineOfBusiness-route');
 
-	app.use('/company', company);
+	app.use('/api/companies', company);
+	app.use('/api/lineofbusinesses', lineOfBusiness);
 
 	// var controllers = glob.sync(config.root + "/app/controllers/*.js");
 	// controllers.forEach(controller => {
