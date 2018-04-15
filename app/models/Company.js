@@ -6,10 +6,34 @@ const CompanySchema = new Schema({
 		type: String,
 		required: true
 	},
-	address: {
-		type: String,
-		required: true
-	},
+	address: [{
+		street:{
+			type: String,
+			required: true
+		},
+		number: {
+			type: String,
+			required: true
+		},
+		buildingComplement: {
+			type: String
+		},
+		districtName :{
+			type: String
+		},
+		city: {
+			type: String,
+			required: true
+		},
+		state: {
+			type: String,
+			required: true
+		},
+		country: {
+			type: String,
+			required: true
+		}
+	}],
 	name: {
 		type: String
 	},
