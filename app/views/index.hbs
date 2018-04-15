@@ -1,0 +1,22 @@
+<h1>{{title }}</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name Alias</th>
+			<th>Email</th>
+			<th>CNPJ</th>
+			<th>IE</th>
+		</tr>
+	</thead>
+	<tbody >
+		{{#each companies}}
+			<tr>
+				<td>{{nameAlias}}</td>
+				<td>{{email}}</td>
+				<td>{{cnpj}}</td>
+				<td>{{ie}}</td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>

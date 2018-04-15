@@ -7,38 +7,37 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const compress = require("compression");
 const methodOverride = require("method-override");
+const hbs = require('express-handlebars');
 
 module.exports = (app, config) => {
 	const env = process.env.NODE_ENV || "development";
 	app.locals.ENV = env;
 	app.locals.ENV_DEVELOPMENT = env == "development";
 
+	app.engine('hbs', hbs({
+		layoutsDir: config.root + '/app/views/layouts/',
+		defaultLayout: 'main',
+		partialsDir: [config.root + '/app/views/partials/'],
+		extname: 'hbs',
+	}));
 	app.set("views", config.root + "/app/views");
-	app.set("view engine", "jade");
+	app.set("view engine", "hbs");
 
-	// app.use(favicon(config.root + '/public/img/favicon.ico'));
+	app.use(favicon(config.root + '/public/img/favicon.ico'));
 	app.use(logger("dev"));
 	app.use(bodyParser.json());
-	app.use(
-		bodyParser.urlencoded({
-			extended: true
-		})
-	);
+	app.use(bodyParser.urlencoded({
+		extended: true
+	}));
 	app.use(cookieParser());
 	app.use(compress());
 	app.use(express.static(config.root + "/public"));
 	app.use(methodOverride());
 
-	const company = require('../app/routes/company-route');
-	const lineOfBusiness = require('../app/routes/lineOfBusiness-route');
-
-	app.use('/api/companies', company);
-	app.use('/api/lineofbusinesses', lineOfBusiness);
-
-	// var controllers = glob.sync(config.root + "/app/controllers/*.js");
-	// controllers.forEach(controller => {
-	// 	require(controller)(app);
-	// });
+	let routes = glob.sync(config.root + "/app/routes/*.js");
+	routes.forEach(route => {
+		require(route)(app);
+	});
 
 	app.use((req, res, next) => {
 		var err = new Error("Not Found");
