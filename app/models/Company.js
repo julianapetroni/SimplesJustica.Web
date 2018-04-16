@@ -6,34 +6,6 @@ const CompanySchema = new Schema({
 		type: String,
 		required: true
 	},
-	address: [{
-		street:{
-			type: String,
-			required: true
-		},
-		number: {
-			type: String,
-			required: true
-		},
-		buildingComplement: {
-			type: String
-		},
-		districtName :{
-			type: String
-		},
-		city: {
-			type: String,
-			required: true
-		},
-		state: {
-			type: String,
-			required: true
-		},
-		country: {
-			type: String,
-			required: true
-		}
-	}],
 	name: {
 		type: String
 	},
@@ -48,10 +20,51 @@ const CompanySchema = new Schema({
 	ie: {
 		type: String
 	},
-	lineOfBusinessId: {
-		type: Number,
-		required: true
+	address: {
+		street: {
+			type: String,
+			required: true
+		},
+		num: {
+			type: Number,
+			required: true
+		},
+		complement: {
+			type: String,
+		},
+		neighborhood: {
+			type: String,
+			required: true
+		},
+		city: {
+			type: String,
+			required: true
+		},
+		state: {
+			type: String,
+			required: true
+		},
+		country: {
+			type: String,
+			required: true
+		},
+		cep: {
+			type: String,
+			required: true
+		}
+	},
+	lineOfBusiness: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'LineOfBusiness'
+	},
+	createdDate: {
+		type: Date,
+		required: true,
+		default: Date.now
 	}
 });
+
+CompanySchema.virtual('date')
+	.get(() => this._id.getTimestamp());
 
 module.exports = mongoose.model("Company", CompanySchema);
