@@ -4,3 +4,4 @@ public/components
 .sass-cache
 *.orig
 config/config.json
+/.vscode
