@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const LineOfBusiness = mongoose.model('LineOfBusiness');
 
-exports.get = (req, res, next) => {
+exports.get = (req, res) => {
 	LineOfBusiness
 		.find({})
 		.then(data => {
@@ -15,7 +15,7 @@ exports.get = (req, res, next) => {
 		});
 };
 
-exports.getById = (req, res, next) => {
+exports.getById = (req, res) => {
 	LineOfBusiness
 		.findById(req.params.id).populate('company')
 		.then(data => {
@@ -29,7 +29,7 @@ exports.getById = (req, res, next) => {
 		});
 };
 
-exports.post = (req, res, next) => {
+exports.post = (req, res) => {
 	const lob = new LineOfBusiness(req.body);
 	lob.save(lob)
 		.then(data => {
@@ -45,7 +45,7 @@ exports.post = (req, res, next) => {
 		});
 };
 
-exports.put = (req, res, next) => {
+exports.put = (req, res) => {
 	LineOfBusiness
 		.findByIdAndUpdate(req.params.id, {
 			description: req.body.description
@@ -63,7 +63,7 @@ exports.put = (req, res, next) => {
 		});
 };
 
-exports.delete = (req, res, next) => {
+exports.delete = (req, res) => {
 	LineOfBusiness
 		.findByIdAndRemove(req.params.id)
 		.then(data => {

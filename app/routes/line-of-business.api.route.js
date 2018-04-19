@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/company-controller');
+const controller = require('../controllers/line-of-business.api.controller');
 
 router.get('/', controller.get);
 router.get('/:id', controller.getById);
@@ -9,5 +9,5 @@ router.put('/:id', controller.put);
 router.delete('/:id', controller.delete);
 
 module.exports = (app) => {
-	app.use('/api/companies', router);
+	app.use('/api/lineofbusinesses', router);
 };

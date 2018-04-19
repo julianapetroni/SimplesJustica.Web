@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Company = mongoose.model("Company");
 
-exports.get = (req, res, next) => {
+exports.get = (req, res) => {
 	Company.find({}, 'nameAlias email cnpj ie')
 		.then(data => {
 			res.status(200).send(data);
@@ -11,7 +11,7 @@ exports.get = (req, res, next) => {
 		});
 };
 
-exports.getById = (req, res, next) => {
+exports.getById = (req, res) => {
 	Company.findById(req.params.id).populate('lineOfBusiness')
 		.then(data => {
 			res.status(200).send(data);
@@ -21,7 +21,7 @@ exports.getById = (req, res, next) => {
 		});
 };
 
-exports.post = (req, res, next) => {
+exports.post = (req, res) => {
 	const company = new Company(req.body);
 	company.save()
 		.then(data => {
@@ -37,7 +37,7 @@ exports.post = (req, res, next) => {
 		});
 };
 
-exports.put = (req, res, next) => {
+exports.put = (req, res) => {
 	Company
 		.findByIdAndUpdate(req.params.id,{
 			$set: {
@@ -61,7 +61,7 @@ exports.put = (req, res, next) => {
 		});
 };
 
-exports.delete = (req, res, next) => {
+exports.delete = (req, res) => {
 	Company
 		.findOneAndRemove(req.params.id)
 		.then(data => {

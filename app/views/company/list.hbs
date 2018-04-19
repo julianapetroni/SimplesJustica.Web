@@ -1,0 +1,39 @@
+<h2>{{title}}</h2>
+<hr/>
+<table class="table">
+    <thead>
+        <tr>
+			<th>Nome fantasia</th>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>CNPJ</th>
+			<th>Inscrição estadual</th>
+			<th></th>
+		</tr>
+	</thead>
+    <tbody>
+		{{#each companies}}
+        <tr>
+            <td>
+                {{nameAlias}}
+            </td>
+            <td>
+                {{name}}
+            </td>
+            <td>
+                {{email}}
+            </td>
+            <td>
+                {{cnpj}}
+            </td>
+            <td>
+                {{ie}}
+            </td>
+            <td>
+                <a href="#">Editar</a> |
+                <a href="#">Remover</a>
+            </td>
+        </tr>
+		{{/each}}
+    </tbody>
+</table>

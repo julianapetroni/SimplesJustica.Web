@@ -20,8 +20,8 @@ module.exports = (app, config) => {
 		partialsDir: [config.root + '/app/views/partials/'],
 		extname: 'hbs',
 	}));
-	app.set("views", config.root + "/app/views");
 	app.set("view engine", "hbs");
+	app.set("views", config.root + "/app/views");
 
 	app.use(favicon(config.root + '/public/img/favicon.ico'));
 	app.use(logger("dev"));

@@ -1,0 +1,29 @@
+<h2>{{title}}</h2>
+<hr />
+<div class="row">
+	<form method="POST">
+		<div class="col-md-6 col-md-offset-3">
+			<h1>Cadastrar empresa</h1>
+			<hr>
+			<label for="nameAlias"><b>Nome fantasia</b></label>
+			<input type="text" placeholder="Digite aqui" name="nameAlias" >
+
+			<label for="name"><b>Razão Social</b></label>
+			<input type="text" placeholder="Digite aqui" name="name" required>
+
+			<label for="name"><b>Email</b></label>
+			<input type="text" placeholder="Digite aqui" name="email" type="email" required>
+
+			<label for="cnpj"><b>CNPJ</b></label>
+			<input type="text" placeholder="Digite aqui"  name="cnpj" required>
+
+			<label for="inscrEstadual"><b>Inscrição Estadual</b></label>
+			<input type="text" placeholder="Digite aqui" name="ie" required>
+
+			<div class="col-md-12" role="group">
+				<button type="reset" class="btn btn-danger btn-lg">Limpar</button>
+				<button type="submit" class="btn btn-success btn-lg">Salvar</button>
+			</div>
+		</div>
+	</form>
+</div>
