@@ -1,39 +1,42 @@
-<h2>{{title}}</h2>
-<hr/>
-<table class="table">
-    <thead>
-        <tr>
-			<th>Nome fantasia</th>
-			<th>Nome</th>
-			<th>Email</th>
-			<th>CNPJ</th>
-			<th>Inscrição estadual</th>
-			<th></th>
-		</tr>
-	</thead>
-    <tbody>
-		{{#each companies}}
-        <tr>
-            <td>
-                {{nameAlias}}
-            </td>
-            <td>
-                {{name}}
-            </td>
-            <td>
-                {{email}}
-            </td>
-            <td>
-                {{cnpj}}
-            </td>
-            <td>
-                {{ie}}
-            </td>
-            <td>
-                <a href="#">Editar</a> |
-                <a href="#">Remover</a>
-            </td>
-        </tr>
-		{{/each}}
-    </tbody>
-</table>
+<div class="col-md-10 col-md-offset-1">
+	<h2>{{title}}</h2>
+	<a href="/empresa/cadastrar" class="btn btn-primary btn-lg">Cadastrar</a>
+	<hr/>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nome fantasia</th>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>CNPJ</th>
+				<th>Inscrição estadual</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each companies}}
+			<tr>
+				<td>
+					{{this.nameAlias}}
+				</td>
+				<td>
+					{{this.name}}
+				</td>
+				<td>
+					{{this.email}}
+				</td>
+				<td>
+					{{this.cnpj}}
+				</td>
+				<td>
+					{{this.ie}}
+				</td>
+				<td>
+					<a href="/empresa/{{this.id}}">Editar</a> |
+					<a href="#">Remover</a>
+				</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
