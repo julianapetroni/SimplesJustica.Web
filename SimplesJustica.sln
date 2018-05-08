@@ -3,9 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Presentation", "1 Presentation", "{C4582EDC-643B-4A2D-B3FF-44975B08911C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Domain", "2 Domain", "{66EA15EE-31A1-4702-AE3B-F036DDB70828}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Data", "3 Data", "{5BF172A6-DE4E-49F4-BD93-C8E91791EB94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Infra", "4 Infra", "{76903422-4EDC-467E-8C0A-A7A3D0A81FC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Domain", "SimplesJustica.Domain\SimplesJustica.Domain.csproj", "{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85} = {66EA15EE-31A1-4702-AE3B-F036DDB70828}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA63C5EB-553F-4239-89A2-F3C98026E228}
