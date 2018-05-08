@@ -41,26 +41,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Autora.cs" />
+    <Compile Include="Entities\Acusado.cs" />
+    <Compile Include="Entities\Autor.cs" />
     <Compile Include="Entities\Base\Entity.cs" />
     <Compile Include="Entities\Conciliador.cs" />
     <Compile Include="Entities\Empresa.cs" />
     <Compile Include="Entities\Endereco.cs" />
-    <Compile Include="Entities\PessoaAcusada.cs" />
     <Compile Include="Entities\Reclamacao.cs" />
     <Compile Include="Entities\Base\Reu.cs" />
     <Compile Include="Entities\Base\Usuario.cs" />
     <Compile Include="Enum\Genero.cs" />
     <Compile Include="Enum\LinhaDeNegocio.cs" />
     <Compile Include="Enum\StatusReclamacao.cs" />
-    <Compile Include="Interfaces\Repositories\IBaseRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Base\IRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAcusadoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAutorRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IConciliadorRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEmpresaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IReclamacaoRepository.cs" />
+    <Compile Include="Interfaces\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\CNPJ.cs" />
     <Compile Include="ValueObjects\CPF.cs" />
     <Compile Include="ValueObjects\Base\ValueObject.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\UnitOfWork\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
