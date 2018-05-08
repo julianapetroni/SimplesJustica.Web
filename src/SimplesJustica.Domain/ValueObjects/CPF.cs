@@ -30,6 +30,20 @@ namespace SimplesJustica.Domain.ValueObjects
                 return false;
             }
 
+            string testeRepeticao = "";
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 11; j++)
+                {
+                    testeRepeticao += i.ToString();
+                }
+
+                if (_cpf == testeRepeticao)
+                    return false;
+
+                testeRepeticao = "";
+            }
+
             var tempCpf = _cpf.Substring(0, 9);
             var soma = 0;
 
@@ -67,6 +81,8 @@ namespace SimplesJustica.Domain.ValueObjects
             }
 
             digito = digito + resto;
+
+
             return _cpf.EndsWith(digito);
         }
     }

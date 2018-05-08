@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Infra", "4 Infra", "{7690
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Domain", "src\SimplesJustica.Domain\SimplesJustica.Domain.csproj", "{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Domain.Tests", "test\SimplesJustica.Domain.Tests\SimplesJustica.Domain.Tests.csproj", "{4AF66A16-08BB-4E8A-AE63-B981FF178971}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF66A16-08BB-4E8A-AE63-B981FF178971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF66A16-08BB-4E8A-AE63-B981FF178971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF66A16-08BB-4E8A-AE63-B981FF178971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF66A16-08BB-4E8A-AE63-B981FF178971}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85} = {5BF172A6-DE4E-49F4-BD93-C8E91791EB94}
+		{4AF66A16-08BB-4E8A-AE63-B981FF178971} = {5BF172A6-DE4E-49F4-BD93-C8E91791EB94}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA63C5EB-553F-4239-89A2-F3C98026E228}
