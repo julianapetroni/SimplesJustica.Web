@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Domain", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Domain.Tests", "test\SimplesJustica.Domain.Tests\SimplesJustica.Domain.Tests.csproj", "{4AF66A16-08BB-4E8A-AE63-B981FF178971}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Data", "SimplesJustica.Data\SimplesJustica.Data.csproj", "{9BF930DF-8168-4D88-A262-7C0610F254CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Data", "src\SimplesJustica.Data\SimplesJustica.Data.csproj", "{9BF930DF-8168-4D88-A262-7C0610F254CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -48,7 +48,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\SimplesJustica.Domain\SimplesJustica.Domain.csproj">
+    <ProjectReference Include="..\SimplesJustica.Domain\SimplesJustica.Domain.csproj">
       <Project>{aa5cf2b7-64d3-4ed3-bdef-bb47195f6b85}</Project>
       <Name>SimplesJustica.Domain</Name>
     </ProjectReference>
