@@ -27,5 +27,10 @@ namespace SimplesJustica.Domain.ValueObjects
         {
             return value.Trim().ToLower();
         }
+
+        public override string ToString()
+        {
+            return StringValue;
+        }
     }
 }

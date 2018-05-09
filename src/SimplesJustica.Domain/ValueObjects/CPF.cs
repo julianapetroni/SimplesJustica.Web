@@ -108,5 +108,10 @@ namespace SimplesJustica.Domain.ValueObjects
         {
             return Convert.ToUInt64(value).ToString(@"000\.000\.000\-00");
         }
+
+        public override string ToString()
+        {
+            return StringValue;
+        }
     }
 }
