@@ -11,7 +11,7 @@ namespace SimplesJustica.Domain.Interfaces.UnitOfWork
         IEmpresaRepository Empresas { get; set; }
         IReclamacaoRepository Reclamacoes { get; set; }
 
-        bool Commit { get; set; }
-        Task<bool> CommitAsync { get; set; }
+        bool Commit();
+        Task<bool> CommitAsync();
     }
 }

@@ -10,12 +10,12 @@ using SimplesJustica.Domain.Interfaces.Repositories.Base;
 
 namespace SimplesJustica.Data.Repositories.Base
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
+    internal class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
         protected readonly SimplesJusticaContext _context;
         private readonly DbSet<TEntity> Db;
 
-        public Repository(SimplesJusticaContext context)
+        internal Repository(SimplesJusticaContext context)
         {
             _context = context;
             Db = _context.Set<TEntity>();

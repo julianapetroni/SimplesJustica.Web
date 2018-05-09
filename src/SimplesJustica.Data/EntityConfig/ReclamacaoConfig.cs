@@ -3,9 +3,9 @@ using SimplesJustica.Domain.Entities;
 
 namespace SimplesJustica.Data.EntityConfig
 {
-    public class ReclamacaoConfig : EntityTypeConfiguration<Reclamacao>
+    internal class ReclamacaoConfig : EntityTypeConfiguration<Reclamacao>
     {
-        public ReclamacaoConfig()
+        internal ReclamacaoConfig()
         {
             Property(c => c.Titulo)
                 .IsRequired()

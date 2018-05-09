@@ -5,9 +5,9 @@ using SimplesJustica.Domain.Interfaces.Repositories;
 
 namespace SimplesJustica.Data.Repositories
 {
-    public class EmpresaRepository : Repository<Empresa>, IEmpresaRepository
+    internal class EmpresaRepository : Repository<Empresa>, IEmpresaRepository
     {
-        public EmpresaRepository(SimplesJusticaContext context) 
+        internal EmpresaRepository(SimplesJusticaContext context) 
             : base(context)
         {
         }

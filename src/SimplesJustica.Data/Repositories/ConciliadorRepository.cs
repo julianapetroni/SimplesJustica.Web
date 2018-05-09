@@ -5,9 +5,9 @@ using SimplesJustica.Domain.Interfaces.Repositories;
 
 namespace SimplesJustica.Data.Repositories
 {
-    public class ConciliadorRepository : Repository<Conciliador>, IConciliadorRepository
+    internal class ConciliadorRepository : Repository<Conciliador>, IConciliadorRepository
     {
-        public ConciliadorRepository(SimplesJusticaContext context) 
+        internal ConciliadorRepository(SimplesJusticaContext context) 
             : base(context)
         {
         }

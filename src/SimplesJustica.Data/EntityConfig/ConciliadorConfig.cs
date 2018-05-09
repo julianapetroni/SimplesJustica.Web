@@ -3,9 +3,9 @@ using SimplesJustica.Domain.Entities;
 
 namespace SimplesJustica.Data.EntityConfig
 {
-    public class ConciliadorConfig : EntityTypeConfiguration<Conciliador>
+    internal class ConciliadorConfig : EntityTypeConfiguration<Conciliador>
     {
-        public ConciliadorConfig()
+        internal ConciliadorConfig()
         {
             Property(c => c.Nome)
                 .IsRequired()

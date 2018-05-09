@@ -5,9 +5,9 @@ using SimplesJustica.Domain.Interfaces.Repositories;
 
 namespace SimplesJustica.Data.Repositories
 {
-    public class EnderecoRepository : Repository<Empresa>, IEmpresaRepository
+    internal class EnderecoRepository : Repository<Empresa>, IEmpresaRepository
     {
-        public EnderecoRepository(SimplesJusticaContext context) 
+        internal EnderecoRepository(SimplesJusticaContext context) 
             : base(context)
         {
         }

@@ -5,9 +5,9 @@ using SimplesJustica.Domain.Interfaces.Repositories;
 
 namespace SimplesJustica.Data.Repositories
 {
-    public class AutorRepository : Repository<Autor>, IAutorRepository
+    internal class AutorRepository : Repository<Autor>, IAutorRepository
     {
-        public AutorRepository(SimplesJusticaContext context) 
+        internal AutorRepository(SimplesJusticaContext context) 
             : base(context)
         {
         }

@@ -3,9 +3,9 @@ using SimplesJustica.Domain.Entities;
 
 namespace SimplesJustica.Data.EntityConfig
 {
-    public class EnderecoConfig : EntityTypeConfiguration<Endereco>
+    internal class EnderecoConfig : EntityTypeConfiguration<Endereco>
     {
-        public EnderecoConfig()
+        internal EnderecoConfig()
         {
             Property(c => c.Logradouro)
                 .IsRequired()

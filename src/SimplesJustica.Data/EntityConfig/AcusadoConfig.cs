@@ -3,9 +3,9 @@ using SimplesJustica.Domain.Entities;
 
 namespace SimplesJustica.Data.EntityConfig
 {
-    public class AcusadoConfig : EntityTypeConfiguration<Acusado>
+    internal class AcusadoConfig : EntityTypeConfiguration<Acusado>
     {
-        public AcusadoConfig()
+        internal AcusadoConfig()
         {
             Property(x => x.Nome)
                 .IsRequired()

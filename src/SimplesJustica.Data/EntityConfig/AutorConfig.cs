@@ -3,9 +3,9 @@ using SimplesJustica.Domain.Entities;
 
 namespace SimplesJustica.Data.EntityConfig
 {
-    public class AutorConfig : EntityTypeConfiguration<Autor>
+    internal class AutorConfig : EntityTypeConfiguration<Autor>
     {
-        public AutorConfig()
+        internal AutorConfig()
         {
             Property(c => c.Nome)
                 .IsRequired()

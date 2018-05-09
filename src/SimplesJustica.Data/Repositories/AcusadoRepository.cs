@@ -5,9 +5,9 @@ using SimplesJustica.Domain.Interfaces.Repositories;
 
 namespace SimplesJustica.Data.Repositories
 {
-    public class AcusadoRepository : Repository<Acusado>, IAcusadoRepository
+    internal class AcusadoRepository : Repository<Acusado>, IAcusadoRepository
     {
-        public AcusadoRepository(SimplesJusticaContext context) 
+        internal AcusadoRepository(SimplesJusticaContext context) 
             : base(context)
         {
         }

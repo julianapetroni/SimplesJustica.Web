@@ -5,9 +5,9 @@ using SimplesJustica.Domain.Interfaces.Repositories;
 
 namespace SimplesJustica.Data.Repositories
 {
-    public class ReclamacaoRepository : Repository<Reclamacao>, IReclamacaoRepository
+    internal class ReclamacaoRepository : Repository<Reclamacao>, IReclamacaoRepository
     {
-        public ReclamacaoRepository(SimplesJusticaContext context) 
+        internal ReclamacaoRepository(SimplesJusticaContext context) 
             : base(context)
         {
         }

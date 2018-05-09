@@ -3,9 +3,9 @@ using SimplesJustica.Domain.Entities;
 
 namespace SimplesJustica.Data.EntityConfig
 {
-    public class EmpresaConfig : EntityTypeConfiguration<Empresa>
+    internal class EmpresaConfig : EntityTypeConfiguration<Empresa>
     {
-        public EmpresaConfig()
+        internal EmpresaConfig()
         {
             Property(c => c.InscricaoEstadual)
                 .IsRequired()

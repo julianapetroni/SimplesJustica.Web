@@ -2,7 +2,6 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq.Expressions;
 using SimplesJustica.Data.EntityConfig;
 using SimplesJustica.Domain.Entities;
 using SimplesJustica.Domain.Entities.Base;
