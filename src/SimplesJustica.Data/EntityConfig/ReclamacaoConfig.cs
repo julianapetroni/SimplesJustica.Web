@@ -7,6 +7,14 @@ namespace SimplesJustica.Data.EntityConfig
     {
         internal ReclamacaoConfig()
         {
+            HasKey(x => x.Id);
+
+            Property(x => x.DataCadastro)
+                .IsRequired();
+
+            Property(x => x.DataAtualizacao)
+                .IsOptional();
+
             Property(c => c.Titulo)
                 .IsRequired()
                 .HasMaxLength(150);

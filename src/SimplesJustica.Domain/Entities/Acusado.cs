@@ -8,7 +8,7 @@ namespace SimplesJustica.Domain.Entities
     public class Acusado : Reu
     {
         public string Sobrenome { get; set; }
-        public CPF Cpf { get; set; }
+        public CPF CPF { get; set; }
         public DateTime Nascimento { get; set; }
         public Genero Genero { get; set; }
     }

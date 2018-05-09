@@ -7,6 +7,18 @@ namespace SimplesJustica.Data.EntityConfig
     {
         internal ConciliadorConfig()
         {
+            HasKey(x => x.Id);
+
+            Property(x => x.DataCadastro)
+                .IsRequired();
+
+            Property(x => x.DataAtualizacao)
+                .IsOptional();
+
+            Property(x => x.Email.StringValue)
+                .IsRequired()
+                .HasMaxLength(100);
+
             Property(c => c.Nome)
                 .IsRequired()
                 .HasMaxLength(150);
