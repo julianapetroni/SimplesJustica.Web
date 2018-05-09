@@ -8,7 +8,7 @@ namespace SimplesJustica.Domain.Enum
         {
             Masculino,
             Feminino,
-            Indefino
+            Indefinido
         }
 
         public Genero(GeneroType genero)
@@ -29,8 +29,8 @@ namespace SimplesJustica.Domain.Enum
                     case GeneroType.Masculino:
                         return "Masculino";
                         break;
-                    case GeneroType.Indefino:
-                        return "Indefino";
+                    case GeneroType.Indefinido:
+                        return "Indefinido";
                         break;
                     default: return "";
                 }

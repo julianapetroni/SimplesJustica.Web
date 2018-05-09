@@ -7,6 +7,6 @@
         EmAnalise,
         Analisado,
         Deferido,
-        Inderido
+        Indeferido
     }
 }
