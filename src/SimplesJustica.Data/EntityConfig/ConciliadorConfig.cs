@@ -16,6 +16,7 @@ namespace SimplesJustica.Data.EntityConfig
                 .IsOptional();
 
             Property(x => x.Email.StringValue)
+                .HasColumnName("Email")
                 .IsRequired()
                 .HasMaxLength(100);
 
@@ -24,7 +25,7 @@ namespace SimplesJustica.Data.EntityConfig
                 .HasMaxLength(150);
 
             HasMany(c => c.Enderecos)
-                .WithRequired(c => (Conciliador) c.Usuario)
+                .WithRequired()
                 .HasForeignKey(c => c.UsuarioId);
         }
     }

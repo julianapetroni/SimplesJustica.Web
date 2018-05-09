@@ -34,7 +34,7 @@ namespace SimplesJustica.Data.EntityConfig
                 .WithMany(c => c.Reclamacoes)
                 .HasForeignKey(c => c.ReuId);
 
-            HasRequired(c => c.Conciliador)
+            HasOptional(c => c.Conciliador)
                 .WithMany(c => c.Reclamacoes)
                 .HasForeignKey(c => c.ConciliadorId);
         }

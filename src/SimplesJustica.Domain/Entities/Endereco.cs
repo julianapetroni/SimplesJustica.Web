@@ -16,6 +16,5 @@ namespace SimplesJustica.Domain.Entities
         public bool Principal { get; set; }
 
         public Guid UsuarioId { get; set; }
-        public virtual Usuario Usuario { get; set; }
     }
 }

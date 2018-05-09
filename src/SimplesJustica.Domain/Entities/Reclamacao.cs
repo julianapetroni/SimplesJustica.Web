@@ -18,7 +18,7 @@ namespace SimplesJustica.Domain.Entities
         public Guid ReuId { get; set; }
         public virtual Reu Reu { get; set; }
 
-        public Guid ConciliadorId { get; set; }
+        public Guid? ConciliadorId { get; set; }
         public virtual Conciliador Conciliador { get; set; }
         
         #endregion

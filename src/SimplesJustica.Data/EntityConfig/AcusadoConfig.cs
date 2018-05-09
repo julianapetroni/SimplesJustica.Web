@@ -18,17 +18,20 @@ namespace SimplesJustica.Data.EntityConfig
                 .IsOptional();
 
             Property(x => x.Email.StringValue)
+                .HasColumnName("Email")
                 .IsRequired()
                 .HasMaxLength(100);
 
             Property(x => x.CPF.StringValue)
+                .HasColumnName("CPF")
                 .IsRequired()
                 .HasMaxLength(11)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("CpfUnique", 1) { IsUnique = true }));
+                    new IndexAnnotation(new IndexAttribute("Acusado_CpfUnique", 1) { IsUnique = true }));
 
             Property(c => c.Genero.StringValue)
+                .HasColumnName("Genero")
                 .IsRequired()
                 .HasMaxLength(15);
 
@@ -44,7 +47,7 @@ namespace SimplesJustica.Data.EntityConfig
                 .HasColumnType("date");
 
             HasMany(x => x.Enderecos)
-                .WithRequired(x => (Acusado) x.Usuario)
+                .WithRequired()
                 .HasForeignKey(x => x.UsuarioId);
         }
     }

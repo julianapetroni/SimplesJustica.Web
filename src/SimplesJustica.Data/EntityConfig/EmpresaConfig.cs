@@ -18,10 +18,12 @@ namespace SimplesJustica.Data.EntityConfig
                 .IsOptional();
 
             Property(x => x.Email.StringValue)
+                .HasColumnName("Email")
                 .IsRequired()
                 .HasMaxLength(100);
 
             Property(x => x.CNPJ.StringValue)
+                .HasColumnName("CNPJ")
                 .IsRequired()
                 .HasMaxLength(14)
                 .HasColumnAnnotation(

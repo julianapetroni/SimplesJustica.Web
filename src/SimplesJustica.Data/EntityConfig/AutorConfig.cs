@@ -18,17 +18,20 @@ namespace SimplesJustica.Data.EntityConfig
                 .IsOptional();
 
             Property(x => x.Email.StringValue)
+                .HasColumnName("Email")
                 .IsRequired()
                 .HasMaxLength(100);
 
             Property(x => x.Cpf.StringValue)
+                .HasColumnName("CPF")
                 .IsRequired()
                 .HasMaxLength(11)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("CpfUnique", 1) { IsUnique = true }));
+                    new IndexAnnotation(new IndexAttribute("Autor_CpfUnique", 1) { IsUnique = true }));
 
             Property(c => c.Genero.StringValue)
+                .HasColumnName("Genero")
                 .IsRequired()
                 .HasMaxLength(15);
 
