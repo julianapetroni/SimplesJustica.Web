@@ -1,4 +1,5 @@
-﻿using SimplesJustica.Domain.ValueObjects.Base;
+﻿using System;
+using SimplesJustica.Domain.ValueObjects.Base;
 
 namespace SimplesJustica.Domain.ValueObjects
 {
@@ -9,12 +10,12 @@ namespace SimplesJustica.Domain.ValueObjects
         public string StringValue
         {
             get => _stringValue;
-            set => _stringValue = value.Trim().Replace(".", "").Replace("-", "");
+            set => _stringValue = TratarFormatoEntrada(value);
         }
 
         public CPF(string cpf)
         {
-            _stringValue = cpf;
+            _stringValue = TratarFormatoEntrada(cpf);
         }
 
         public override bool EhValido()
@@ -41,12 +42,19 @@ namespace SimplesJustica.Domain.ValueObjects
                 testeRepeticao = "";
             }
 
-            var tempCpf = _stringValue.Substring(0, 9);
-            var soma = 0;
+            string tempCpf = _stringValue.Substring(0, 9);
+            int soma = 0;
 
             for (int i = 0; i < 9; i++)
             {
-                soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
+                try
+                {
+                    soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
+                }
+                catch
+                {
+                    return false;
+                }
             }
 
             var resto = soma % 11;
@@ -64,7 +72,15 @@ namespace SimplesJustica.Domain.ValueObjects
             soma = 0;
             for (int i = 0; i < 10; i++)
             {
-                soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+                try
+                {
+                    soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+
+                }
+                catch
+                {
+                    return false;
+                }
             }
 
             resto = soma % 11;
@@ -81,6 +97,11 @@ namespace SimplesJustica.Domain.ValueObjects
 
 
             return _stringValue.EndsWith(digito);
+        }
+
+        private string TratarFormatoEntrada(string value)
+        {
+            return value.Trim().Replace(".", "").Replace("-", "");
         }
     }
 }
