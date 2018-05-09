@@ -4,17 +4,17 @@ namespace SimplesJustica.Domain.ValueObjects
 {
     public class CNPJ : ValueObject
     {
-        private string _cnpj;
+        private string _stringValue;
 
-        public string Cnpj
+        public string StringValue
         {
-            get => _cnpj;
-            set => _cnpj = value;
+            get => _stringValue;
+            set => _stringValue = value.Trim().Replace(".", "").Replace("-", "").Replace("/", "");
         }
 
-        public CNPJ(string doc)
+        public CNPJ(string cnpj)
         {
-            _cnpj = doc;
+            _stringValue = cnpj;
         }
 
         public override bool EhValido()
@@ -22,15 +22,26 @@ namespace SimplesJustica.Domain.ValueObjects
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
 
-            _cnpj = _cnpj.Trim();
-            _cnpj = _cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
-
-            if (_cnpj.Length != 14)
+            if (_stringValue.Length != 14)
             {
                 return false;
             }
 
-            var tempCnpj = _cnpj.Substring(0, 12);
+            string testeRepeticao = "";
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 14; j++)
+                {
+                    testeRepeticao += i.ToString();
+                }
+
+                if (_stringValue == testeRepeticao)
+                    return false;
+
+                testeRepeticao = "";
+            }
+
+            var tempCnpj = _stringValue.Substring(0, 12);
             var soma = 0;
             for (int i = 0; i < 12; i++)
             {
@@ -67,7 +78,7 @@ namespace SimplesJustica.Domain.ValueObjects
             }
 
             digito = digito + resto;
-            return _cnpj.EndsWith(digito);
+            return _stringValue.EndsWith(digito);
         }
     }
 }

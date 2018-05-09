@@ -8,16 +8,16 @@ namespace SimplesJustica.Domain.Interfaces.Repositories.Base
 {
     public interface IRepository<TEntity> where TEntity : Entity
     {
-        Task<TEntity> Obter(Guid id);
+        Task<List<TEntity>> Listar();
+        Task<List<TEntity>> Listar(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> Obter(Expression<Func<TEntity, bool>> predicate);
-        Task<ICollection<TEntity>> Listar();
-        Task<ICollection<TEntity>> Listar(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> Obter(Guid id);
 
-        Task Adicionar(TEntity obj);
-        Task Adicionar(ICollection<TEntity> objs);
-        Task<bool> Atualizar(Guid id, TEntity obj);
-        Task<bool> Atualizar(Expression<Func<TEntity, bool>> predicate, TEntity obj);
-        Task<bool> Deletar(Guid id);
-        Task<bool> Deletar(Expression<Func<TEntity, bool>> predicate);
+        IEnumerable<TEntity> Adicionar(List<TEntity> entities);
+        TEntity Adicionar(TEntity entity);
+        void Atualizar(ICollection<TEntity> entities);
+        void Atualizar(TEntity entity);
+        IEnumerable<TEntity> Deletar(ICollection<TEntity> entites);
+        TEntity Deletar(TEntity entity);
     }
 }

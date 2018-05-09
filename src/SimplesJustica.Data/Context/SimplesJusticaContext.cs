@@ -1,6 +1,13 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq.Expressions;
+using SimplesJustica.Data.EntityConfig;
 using SimplesJustica.Domain.Entities;
+using SimplesJustica.Domain.Entities.Base;
+using SimplesJustica.Domain.Enum;
+using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Data.Context
 {
@@ -20,15 +27,78 @@ namespace SimplesJustica.Data.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            #region Convenções
 
             modelBuilder.Conventions.Remove<PluralizingEntitySetNameConvention>();
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
-            modelBuilder.Properties<string>().Configure(x => x.HasColumnType("varchar"));
-            modelBuilder.Properties<string>().Configure(x => x.HasMaxLength(255));
+            #endregion
+
+            #region Configuração
+
+            #region Compartilhado
+
+            modelBuilder.Properties<string>()
+                .Configure(x => x.HasColumnType("varchar"));
+
+            modelBuilder.Properties<string>()
+                .Configure(x => x.HasMaxLength(255));
+
+            modelBuilder.Entity<Entity>()
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Entity>()
+                .Property(x => x.DataCadastro)
+                .IsRequired();
+
+            modelBuilder.Entity<Entity>()
+                .Property(x => x.DataAtualizacao)
+                .IsOptional();
+
+            modelBuilder.Entity<Email>()
+                .Property(x => x.StringValue)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            modelBuilder.Entity<CPF>()
+                .Property(x => x.StringValue)
+                .IsRequired()
+                .HasMaxLength(11)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("CpfUnique", 1) { IsUnique = true }));
+
+            modelBuilder.Entity<CNPJ>()
+                .Property(x => x.StringValue)
+                .IsRequired()
+                .HasMaxLength(14)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("CnpjUnique", 1) { IsUnique = true }));
+
+            modelBuilder.Entity<Genero>()
+                .Property(c => c.StringValue)
+                .IsRequired()
+                .HasMaxLength(15);
+
+            #endregion
+
+            #region Específico
+
+            modelBuilder.Configurations.Add(new AcusadoConfig());
+            modelBuilder.Configurations.Add(new AutorConfig());
+            modelBuilder.Configurations.Add(new ConciliadorConfig());
+            modelBuilder.Configurations.Add(new EmpresaConfig());
+            modelBuilder.Configurations.Add(new EnderecoConfig());
+            modelBuilder.Configurations.Add(new ReclamacaoConfig());
+
+            #endregion
+
+            #endregion
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

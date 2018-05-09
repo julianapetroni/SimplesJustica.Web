@@ -2,14 +2,21 @@
 
 namespace SimplesJustica.Domain.Entities.Base
 {
-    public class Reu : Usuario
+    public abstract class Reu : Usuario
     {
-        public Reu()
+        protected Reu()
         {
             Enderecos = new List<Endereco>();
+            Reclamacoes = new List<Reclamacao>();
         }
 
         public string Nome { get; set; }
-        public List<Endereco> Enderecos { get; set; }
+
+        #region Relacionamento
+
+        public virtual List<Endereco> Enderecos { get; set; }
+        public virtual List<Reclamacao> Reclamacoes { get; set; }
+
+        #endregion
     }
 }

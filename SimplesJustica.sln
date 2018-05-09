@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Domain.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Data", "src\SimplesJustica.Data\SimplesJustica.Data.csproj", "{9BF930DF-8168-4D88-A262-7C0610F254CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Extensions", "src\SimplesJustica.Extensions\SimplesJustica.Extensions.csproj", "{6E801393-53A5-45BC-8FF3-8F968E5C206F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{9BF930DF-8168-4D88-A262-7C0610F254CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BF930DF-8168-4D88-A262-7C0610F254CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BF930DF-8168-4D88-A262-7C0610F254CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E801393-53A5-45BC-8FF3-8F968E5C206F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E801393-53A5-45BC-8FF3-8F968E5C206F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E801393-53A5-45BC-8FF3-8F968E5C206F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E801393-53A5-45BC-8FF3-8F968E5C206F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85} = {5BF172A6-DE4E-49F4-BD93-C8E91791EB94}
 		{4AF66A16-08BB-4E8A-AE63-B981FF178971} = {5BF172A6-DE4E-49F4-BD93-C8E91791EB94}
 		{9BF930DF-8168-4D88-A262-7C0610F254CD} = {66EA15EE-31A1-4702-AE3B-F036DDB70828}
+		{6E801393-53A5-45BC-8FF3-8F968E5C206F} = {76903422-4EDC-467E-8C0A-A7A3D0A81FC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA63C5EB-553F-4239-89A2-F3C98026E228}

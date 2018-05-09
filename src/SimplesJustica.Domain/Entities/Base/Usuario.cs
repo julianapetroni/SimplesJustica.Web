@@ -1,7 +1,9 @@
-﻿namespace SimplesJustica.Domain.Entities.Base
+﻿using SimplesJustica.Domain.ValueObjects;
+
+namespace SimplesJustica.Domain.Entities.Base
 {
     public abstract class Usuario : Entity
     {
-        public string Email { get; set; }
+        public Email Email { get; set; }
     }
 }

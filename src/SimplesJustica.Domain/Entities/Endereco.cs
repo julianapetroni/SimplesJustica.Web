@@ -1,4 +1,5 @@
-﻿using SimplesJustica.Domain.Entities.Base;
+﻿using System;
+using SimplesJustica.Domain.Entities.Base;
 
 namespace SimplesJustica.Domain.Entities
 {
@@ -10,9 +11,11 @@ namespace SimplesJustica.Domain.Entities
         public string Complemento { get; set; }
         public string Cidade { get; set; }
         public string UF { get; set; }
-        public string Pais { get; set; }
-        public string CPF { get; set; }
-        public Usuario Usuario { get; set; }
+        public string Pais { get; set; } = "Brasil";
+        public string CEP { get; set; }
         public bool Principal { get; set; }
+
+        public Guid UsuarioId { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

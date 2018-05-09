@@ -58,7 +58,13 @@
     <Compile Include="ValueObjects\CNPJ.cs" />
     <Compile Include="ValueObjects\CPF.cs" />
     <Compile Include="ValueObjects\Base\ValueObject.cs" />
+    <Compile Include="ValueObjects\Email.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SimplesJustica.Extensions\SimplesJustica.Extensions.csproj">
+      <Project>{6e801393-53a5-45bc-8ff3-8f968e5c206f}</Project>
+      <Name>SimplesJustica.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
