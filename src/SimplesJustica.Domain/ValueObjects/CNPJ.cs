@@ -1,4 +1,5 @@
-﻿using System.Reflection.Emit;
+﻿using System;
+using System.Reflection.Emit;
 using SimplesJustica.Domain.ValueObjects.Base;
 
 namespace SimplesJustica.Domain.ValueObjects
@@ -9,7 +10,7 @@ namespace SimplesJustica.Domain.ValueObjects
 
         public string StringValue
         {
-            get => _stringValue;
+            get => TratarFormatoSaida(_stringValue);
             set => _stringValue = TratarFormatoEntrada(value);
         }
 
@@ -99,6 +100,11 @@ namespace SimplesJustica.Domain.ValueObjects
         private string TratarFormatoEntrada(string value)
         {
             return value.Trim().Replace(".", "").Replace("-", "").Replace("/", "");
+        }
+
+        private static string TratarFormatoSaida(string CNPJ)
+        {
+            return Convert.ToUInt64(CNPJ).ToString(@"00\.000\.000\/0000\-00");
         }
     }
 }

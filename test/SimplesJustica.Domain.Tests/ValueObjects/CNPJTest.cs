@@ -40,5 +40,24 @@ namespace SimplesJustica.Domain.Tests.ValueObjects
             //assert
             Assert.That(result, Is.False);
         }
+
+        [Test]
+        [TestCase("89.986.237/0001-05")]
+        [TestCase("89028651000101")]
+        [TestCase("31123752000173")]
+        public void Quando_ObterCnpj_Retorna_CnpjFormatado(string val)
+        {
+            //arrange
+            var cnpj = new CNPJ(val);
+
+            //act
+            var result = cnpj.StringValue;
+
+            //assert
+            Assert.AreEqual('.', result[2]);
+            Assert.AreEqual('.', result[6]);
+            Assert.AreEqual('/', result[10]);
+            Assert.AreEqual('-', result[15]);
+        }
     }
 }

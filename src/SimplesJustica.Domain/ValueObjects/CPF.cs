@@ -9,7 +9,7 @@ namespace SimplesJustica.Domain.ValueObjects
 
         public string StringValue
         {
-            get => _stringValue;
+            get => TratarFormatoSaida(_stringValue);
             set => _stringValue = TratarFormatoEntrada(value);
         }
 
@@ -102,6 +102,11 @@ namespace SimplesJustica.Domain.ValueObjects
         private string TratarFormatoEntrada(string value)
         {
             return value.Trim().Replace(".", "").Replace("-", "");
+        }
+
+        private string TratarFormatoSaida(string value)
+        {
+            return Convert.ToUInt64(value).ToString(@"000\.000\.000\-00");
         }
     }
 }

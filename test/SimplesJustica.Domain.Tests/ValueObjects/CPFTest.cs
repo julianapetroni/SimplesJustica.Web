@@ -41,5 +41,24 @@ namespace SimplesJustica.Domain.Tests.ValueObjects
             //Assert
             Assert.That(result, Is.False);
         }
+
+        [Test]
+        [TestCase("86207711084")]   
+        [TestCase("38034989029")]   
+        [TestCase("219.694.210-37")]   
+        [TestCase("358.324.360-91")]
+        public void Quando_ObterCpf_Retorna_CpfFormatado(string val)
+        {
+            //arrange
+            var cpf = new CPF(val);
+
+            //act
+            var result = cpf.StringValue;
+
+            //assert
+            Assert.AreEqual('.', result[3]);
+            Assert.AreEqual('.', result[7]);
+            Assert.AreEqual('-', result[11]);
+        }
     }
 }
