@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\CNPJTest.cs" />
     <Compile Include="ValueObjects\CPFTest.cs" />
+    <Compile Include="ValueObjects\EmailTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

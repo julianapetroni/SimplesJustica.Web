@@ -10,17 +10,22 @@ namespace SimplesJustica.Domain.ValueObjects
         public string StringValue
         {
             get => _stringValue;
-            set => _stringValue = value;
+            set => _stringValue = TratarFormatoEntrada(value);
         }
 
         public Email(string email)
         {
-            StringValue = email;
+            StringValue = TratarFormatoEntrada(email);
         }
 
         public override bool EhValido()
         {
-            return Regex.IsMatch(_stringValue, @"/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i");
+            return Regex.IsMatch(_stringValue, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        }
+
+        private string TratarFormatoEntrada(string value)
+        {
+            return value.Trim().ToLower();
         }
     }
 }
