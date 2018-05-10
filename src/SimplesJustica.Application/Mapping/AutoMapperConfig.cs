@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SimplesJustica.Application.Mapping
+﻿namespace SimplesJustica.Application.Mapping
 {
     public class AutoMapperConfig
     {

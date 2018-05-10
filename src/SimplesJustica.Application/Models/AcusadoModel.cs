@@ -5,7 +5,7 @@ namespace SimplesJustica.Application.Models
     public class AcusadoModel
     {
         public Guid Id { get; set; }
-        public DateTime? DataCadastro { get; set; }
+        public DateTime DataCadastro { get; set; }
         public DateTime? DataAtualizacao { get; set; }
         public string Email { get; set; }
         public string Nome { get; set; }

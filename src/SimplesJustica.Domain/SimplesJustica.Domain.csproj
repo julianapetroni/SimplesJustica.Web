@@ -61,9 +61,9 @@
     <Compile Include="ValueObjects\Email.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SimplesJustica.Extensions\SimplesJustica.Extensions.csproj">
-      <Project>{6e801393-53a5-45bc-8ff3-8f968e5c206f}</Project>
-      <Name>SimplesJustica.Extensions</Name>
+    <ProjectReference Include="..\SimplesJustica.CrossCutting\SimplesJustica.CrossCutting.csproj">
+      <Project>{76f20d3b-0a4c-4486-916a-2f0c5e36d396}</Project>
+      <Name>SimplesJustica.CrossCutting</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,10 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SimplesJustica.CrossCutting\SimplesJustica.CrossCutting.csproj" />
     <ProjectReference Include="..\SimplesJustica.Data\SimplesJustica.Data.csproj" />
     <ProjectReference Include="..\SimplesJustica.Domain\SimplesJustica.Domain.csproj" />
-    <ProjectReference Include="..\SimplesJustica.Extensions\SimplesJustica.Extensions.csproj" />
-    <ProjectReference Include="..\SimplesJustica.IoC\SimplesJustica.IoC.csproj" />
   </ItemGroup>
 
 </Project>

@@ -63,6 +63,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SimplesJustica.CrossCutting\SimplesJustica.CrossCutting.csproj">
+      <Project>{76f20d3b-0a4c-4486-916a-2f0c5e36d396}</Project>
+      <Name>SimplesJustica.CrossCutting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimplesJustica.Domain\SimplesJustica.Domain.csproj">
       <Project>{aa5cf2b7-64d3-4ed3-bdef-bb47195f6b85}</Project>
       <Name>SimplesJustica.Domain</Name>
