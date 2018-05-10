@@ -13,6 +13,11 @@ namespace SimplesJustica.Domain.ValueObjects
             set => _stringValue = TratarFormatoEntrada(value);
         }
 
+        protected Email()
+        {
+            //Requisito do EntityFramework
+        }
+
         public Email(string email)
         {
             StringValue = TratarFormatoEntrada(email);

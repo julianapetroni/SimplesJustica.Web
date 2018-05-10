@@ -13,6 +13,11 @@ namespace SimplesJustica.Domain.ValueObjects
             set => _stringValue = TratarFormatoEntrada(value);
         }
 
+        protected CPF()
+        {
+            //Requisito do EF
+        }
+
         public CPF(string cpf)
         {
             _stringValue = TratarFormatoEntrada(cpf);

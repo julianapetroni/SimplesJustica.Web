@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using SimplesJustica.Domain.Entities.Base;
@@ -12,6 +13,7 @@ namespace SimplesJustica.Domain.Interfaces.Repositories.Base
         Task<List<TEntity>> Listar(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> Obter(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> Obter(Guid id);
+        IQueryable<TEntity> Encontrar(Expression<Func<TEntity, bool>> predicate);
 
         IEnumerable<TEntity> Adicionar(List<TEntity> entities);
         TEntity Adicionar(TEntity entity);

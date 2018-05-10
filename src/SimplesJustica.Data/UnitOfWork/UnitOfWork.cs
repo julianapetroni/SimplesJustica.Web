@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using SimplesJustica.Data.Context;
 using SimplesJustica.Data.Repositories;
 using SimplesJustica.Domain.Interfaces.Repositories;
@@ -36,6 +37,11 @@ namespace SimplesJustica.Data.UnitOfWork
         {
             var result = await _context.SaveChangesAsync();
             return result > 0;
+        }
+
+        public void Dispose()
+        {
+            _context?.Dispose();
         }
     }
 }

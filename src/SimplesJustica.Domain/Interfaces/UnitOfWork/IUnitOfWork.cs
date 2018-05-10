@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using SimplesJustica.Domain.Interfaces.Repositories;
 
 namespace SimplesJustica.Domain.Interfaces.UnitOfWork
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         IAcusadoRepository Acusados { get; set; }
         IAutorRepository Autores { get; set; }

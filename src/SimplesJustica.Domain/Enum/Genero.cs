@@ -11,6 +11,11 @@ namespace SimplesJustica.Domain.Enum
             Indefinido
         }
 
+        protected Genero()
+        {
+            //Requisito do EF
+        }
+
         public Genero(GeneroType genero)
         {
             _genero = genero;

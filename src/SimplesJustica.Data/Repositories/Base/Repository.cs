@@ -26,6 +26,11 @@ namespace SimplesJustica.Data.Repositories.Base
             return Db.FindAsync(id);
         }
 
+        public IQueryable<TEntity> Encontrar(Expression<Func<TEntity, bool>> predicate)
+        {
+            return Db.Where(predicate);
+        }
+
         public Task<TEntity> Obter(Expression<Func<TEntity, bool>> predicate)
         {
             return Db.SingleOrDefaultAsync(predicate);

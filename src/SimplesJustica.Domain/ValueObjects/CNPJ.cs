@@ -14,6 +14,11 @@ namespace SimplesJustica.Domain.ValueObjects
             set => _stringValue = TratarFormatoEntrada(value);
         }
 
+        protected CNPJ()
+        {
+            //Requisito do EF
+        }
+
         public CNPJ(string cnpj)
         {
             _stringValue = TratarFormatoEntrada(cnpj);
