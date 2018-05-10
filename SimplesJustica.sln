@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Presentation", "1 Presentation", "{C4582EDC-643B-4A2D-B3FF-44975B08911C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Data", "3 Data", "{66EA15EE-31A1-4702-AE3B-F036DDB70828}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Data", "4 Data", "{66EA15EE-31A1-4702-AE3B-F036DDB70828}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Domain", "2 Domain", "{5BF172A6-DE4E-49F4-BD93-C8E91791EB94}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Domain", "3 Domain", "{5BF172A6-DE4E-49F4-BD93-C8E91791EB94}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Infra", "4 Infra", "{76903422-4EDC-467E-8C0A-A7A3D0A81FC8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 Infra", "5 Infra", "{76903422-4EDC-467E-8C0A-A7A3D0A81FC8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Domain", "src\SimplesJustica.Domain\SimplesJustica.Domain.csproj", "{AA5CF2B7-64D3-4ED3-BDEF-BB47195F6B85}"
 EndProject
@@ -24,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Web", "src\SimplesJustica.Web\SimplesJustica.Web.csproj", "{57CEF733-FE29-4A0A-9F3F-606BA3F9A42B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Api", "src\SimplesJustica.Api\SimplesJustica.Api.csproj", "{78A63122-3DD2-4E71-8622-5C005835D208}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Application", "2 Application", "{E5F0A273-6569-422B-BDDA-246C6EC087D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Application", "src\SimplesJustica.Application\SimplesJustica.Application.csproj", "{962C71DD-C7A3-4E74-84AA-98C350C98C91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,10 @@ Global
 		{78A63122-3DD2-4E71-8622-5C005835D208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78A63122-3DD2-4E71-8622-5C005835D208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78A63122-3DD2-4E71-8622-5C005835D208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{962C71DD-C7A3-4E74-84AA-98C350C98C91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{962C71DD-C7A3-4E74-84AA-98C350C98C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{962C71DD-C7A3-4E74-84AA-98C350C98C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{962C71DD-C7A3-4E74-84AA-98C350C98C91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +79,7 @@ Global
 		{B36689AF-287B-4440-9E35-639CE922A365} = {76903422-4EDC-467E-8C0A-A7A3D0A81FC8}
 		{57CEF733-FE29-4A0A-9F3F-606BA3F9A42B} = {C4582EDC-643B-4A2D-B3FF-44975B08911C}
 		{78A63122-3DD2-4E71-8622-5C005835D208} = {C4582EDC-643B-4A2D-B3FF-44975B08911C}
+		{962C71DD-C7A3-4E74-84AA-98C350C98C91} = {E5F0A273-6569-422B-BDDA-246C6EC087D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA63C5EB-553F-4239-89A2-F3C98026E228}

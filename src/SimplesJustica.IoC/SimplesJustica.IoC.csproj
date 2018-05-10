@@ -44,6 +44,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SimplesJustica.Application\SimplesJustica.Application.csproj">
+      <Project>{962c71dd-c7a3-4e74-84aa-98c350c98c91}</Project>
+      <Name>SimplesJustica.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimplesJustica.Data\SimplesJustica.Data.csproj">
       <Project>{9bf930df-8168-4d88-a262-7c0610f254cd}</Project>
       <Name>SimplesJustica.Data</Name>

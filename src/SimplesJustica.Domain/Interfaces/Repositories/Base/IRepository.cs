@@ -9,17 +9,17 @@ namespace SimplesJustica.Domain.Interfaces.Repositories.Base
 {
     public interface IRepository<TEntity> where TEntity : Entity
     {
-        Task<List<TEntity>> Listar();
-        Task<List<TEntity>> Listar(Expression<Func<TEntity, bool>> predicate);
-        Task<TEntity> Obter(Expression<Func<TEntity, bool>> predicate);
-        Task<TEntity> Obter(Guid id);
-        IQueryable<TEntity> Encontrar(Expression<Func<TEntity, bool>> predicate);
+        Task<List<TEntity>> List();
+        Task<List<TEntity>> List(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> Get(Guid id);
+        IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
-        IEnumerable<TEntity> Adicionar(List<TEntity> entities);
-        TEntity Adicionar(TEntity entity);
-        void Atualizar(ICollection<TEntity> entities);
-        void Atualizar(TEntity entity);
-        IEnumerable<TEntity> Deletar(ICollection<TEntity> entites);
-        TEntity Deletar(TEntity entity);
+        IEnumerable<TEntity> Add(List<TEntity> entities);
+        TEntity Add(TEntity entity);
+        void Update(ICollection<TEntity> entities);
+        void Update(TEntity entity);
+        IEnumerable<TEntity> Delete(ICollection<TEntity> entites);
+        TEntity Delete(TEntity entity);
     }
 }

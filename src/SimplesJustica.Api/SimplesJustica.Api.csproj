@@ -326,17 +326,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SimplesJustica.Data\SimplesJustica.Data.csproj">
-      <Project>{9bf930df-8168-4d88-a262-7c0610f254cd}</Project>
-      <Name>SimplesJustica.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SimplesJustica.Domain\SimplesJustica.Domain.csproj">
-      <Project>{aa5cf2b7-64d3-4ed3-bdef-bb47195f6b85}</Project>
-      <Name>SimplesJustica.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SimplesJustica.Extensions\SimplesJustica.Extensions.csproj">
-      <Project>{6e801393-53a5-45bc-8ff3-8f968e5c206f}</Project>
-      <Name>SimplesJustica.Extensions</Name>
+    <ProjectReference Include="..\SimplesJustica.Application\SimplesJustica.Application.csproj">
+      <Project>{962c71dd-c7a3-4e74-84aa-98c350c98c91}</Project>
+      <Name>SimplesJustica.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimplesJustica.IoC\SimplesJustica.IoC.csproj">
       <Project>{b36689af-287b-4440-9e35-639ce922a365}</Project>

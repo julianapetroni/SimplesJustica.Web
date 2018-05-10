@@ -21,38 +21,38 @@ namespace SimplesJustica.Data.Repositories.Base
             Db = _context.Set<TEntity>();
         }
 
-        public Task<TEntity> Obter(Guid id)
+        public Task<TEntity> Get(Guid id)
         {
             return Db.FindAsync(id);
         }
 
-        public IQueryable<TEntity> Encontrar(Expression<Func<TEntity, bool>> predicate)
+        public IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return Db.Where(predicate);
         }
 
-        public Task<TEntity> Obter(Expression<Func<TEntity, bool>> predicate)
+        public Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
         {
             return Db.SingleOrDefaultAsync(predicate);
         }
 
-        public Task<List<TEntity>> Listar()
+        public Task<List<TEntity>> List()
         {
             return Db.ToListAsync();
         }
 
-        public Task<List<TEntity>> Listar(Expression<Func<TEntity, bool>> predicate)
+        public Task<List<TEntity>> List(Expression<Func<TEntity, bool>> predicate)
         {
             return Db.Where(predicate).ToListAsync();
         }
 
-        public TEntity Adicionar(TEntity entity)
+        public TEntity Add(TEntity entity)
         {
             entity.DataCadastro = DateTime.Now;
             return Db.Add(entity);
         }
 
-        public IEnumerable<TEntity> Adicionar(List<TEntity> entities)
+        public IEnumerable<TEntity> Add(List<TEntity> entities)
         {
             foreach (var entity in entities)
             {
@@ -61,27 +61,27 @@ namespace SimplesJustica.Data.Repositories.Base
             return Db.AddRange(entities);
         }
 
-        public void Atualizar(TEntity entity)
+        public void Update(TEntity entity)
         {
             entity.DataAtualizacao = DateTime.Now;
             Db.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
         }
 
-        public void Atualizar(ICollection<TEntity> entities)
+        public void Update(ICollection<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                Atualizar(entity);
+                Update(entity);
             }
         }
 
-        public TEntity Deletar(TEntity entity)
+        public TEntity Delete(TEntity entity)
         {
             return Db.Remove(entity);
         }
 
-        public IEnumerable<TEntity> Deletar(ICollection<TEntity> entites)
+        public IEnumerable<TEntity> Delete(ICollection<TEntity> entites)
         {
             return Db.RemoveRange(entites);
         }

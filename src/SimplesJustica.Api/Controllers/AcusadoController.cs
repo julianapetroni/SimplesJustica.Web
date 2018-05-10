@@ -1,36 +1,31 @@
 ﻿using System;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using SimplesJustica.Data.Context;
-using SimplesJustica.Data.UnitOfWork;
-using SimplesJustica.Domain.Entities;
-using SimplesJustica.Domain.Interfaces.UnitOfWork;
+using SimplesJustica.Application.Interfaces;
+using SimplesJustica.Application.Models;
 
 namespace SimplesJustica.Api.Controllers
 {
     public class AcusadoController : ApiController
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IAcusadoAppService app;
 
-        public AcusadoController(IUnitOfWork unitOfWork)
+        public AcusadoController(IAcusadoAppService app)
         {
-            this.unitOfWork = unitOfWork;
+            this.app = app;
         }
 
-        [HttpGet]
         public async Task<IHttpActionResult> Get()
         {
-            return Ok(await unitOfWork.Acusados.Listar());
+            return Ok(await app.List());
         }
 
-        [ResponseType(typeof(Acusado))]
-        public async Task<IHttpActionResult> GetAcusado(Guid id)
+        [ResponseType(typeof(AcusadoModel))]
+        public async Task<IHttpActionResult> Get(Guid id)
         {
-            Acusado acusado = await unitOfWork.Acusados.Obter(id);
+            AcusadoModel acusado = await app.Get(id);
             if (acusado == null)
             {
                 return NotFound();
@@ -40,10 +35,11 @@ namespace SimplesJustica.Api.Controllers
         }
 
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutAcusado(Guid id, Acusado acusado)
+        public async Task<IHttpActionResult> Put(Guid id, AcusadoModel acusado)
         {
             if (!ModelState.IsValid)
             {
+                //TODO criar um ActionFilter pra isso
                 return BadRequest(ModelState);
             }
 
@@ -52,67 +48,43 @@ namespace SimplesJustica.Api.Controllers
                 return BadRequest();
             }
 
-            unitOfWork.Acusados.Atualizar(acusado);
-
-            try
+            await app.Update(acusado);
+            if (!app.Response.Successful)
             {
-                await unitOfWork.CommitAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AcusadoExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return StatusCode((HttpStatusCode)(int)(app.Response.StatusCode));
             }
 
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        [ResponseType(typeof(Acusado))]
-        public async Task<IHttpActionResult> PostAcusado(Acusado acusado)
+        [ResponseType(typeof(AcusadoModel))]
+        public async Task<IHttpActionResult> Post(AcusadoModel acusado)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            unitOfWork.Acusados.Adicionar(acusado);
+            await app.Add(acusado);
 
-            try
+            if (!app.Response.Successful)
             {
-                await unitOfWork.CommitAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (AcusadoExists(acusado.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return StatusCode((HttpStatusCode)(int)(app.Response.StatusCode));
             }
 
             return CreatedAtRoute("DefaultApi", new { id = acusado.Id }, acusado);
         }
 
-        [ResponseType(typeof(Acusado))]
+        [ResponseType(typeof(AcusadoModel))]
         public async Task<IHttpActionResult> DeleteAcusado(Guid id)
         {
-            Acusado acusado = await unitOfWork.Acusados.Obter(id);
+            AcusadoModel acusado = await app.Get(id);
             if (acusado == null)
             {
                 return NotFound();
             }
 
-            unitOfWork.Acusados.Deletar(acusado);
-            await unitOfWork.CommitAsync();
+            app.Delete(acusado);
 
             return Ok(acusado);
         }
@@ -121,14 +93,10 @@ namespace SimplesJustica.Api.Controllers
         {
             if (disposing)
             {
-                unitOfWork.Dispose();
+                app.Dispose();
             }
             base.Dispose(disposing);
         }
-
-        private bool AcusadoExists(Guid id)
-        {
-            return unitOfWork.Acusados.Encontrar(e => e.Id == id).Any();
-        }
+        
     }
 }

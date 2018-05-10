@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SimplesJustica.Data\SimplesJustica.Data.csproj" />
+    <ProjectReference Include="..\SimplesJustica.Domain\SimplesJustica.Domain.csproj" />
+    <ProjectReference Include="..\SimplesJustica.Extensions\SimplesJustica.Extensions.csproj" />
+    <ProjectReference Include="..\SimplesJustica.IoC\SimplesJustica.IoC.csproj" />
+  </ItemGroup>
+
+</Project>
