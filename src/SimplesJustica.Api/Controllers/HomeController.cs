@@ -8,7 +8,7 @@ namespace SimplesJustica.Api.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            return View();
+            return Content("SimplesJutiça Api");
         }
     }
 }
