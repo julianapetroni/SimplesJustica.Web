@@ -40,10 +40,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\GeneroConfig.cs" />
     <Compile Include="Context\SimplesJusticaContext.cs" />
     <Compile Include="EntityConfig\AcusadoConfig.cs" />
     <Compile Include="EntityConfig\AutorConfig.cs" />
+    <Compile Include="EntityConfig\CnpjConfig.cs" />
     <Compile Include="EntityConfig\ConciliadorConfig.cs" />
+    <Compile Include="EntityConfig\CpfConfig.cs" />
+    <Compile Include="EntityConfig\EmailConfig.cs" />
     <Compile Include="EntityConfig\EmpresaConfig.cs" />
     <Compile Include="EntityConfig\EnderecoConfig.cs" />
     <Compile Include="EntityConfig\ReclamacaoConfig.cs" />

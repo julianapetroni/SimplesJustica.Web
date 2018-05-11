@@ -17,24 +17,6 @@ namespace SimplesJustica.Data.EntityConfig
             Property(x => x.DataAtualizacao)
                 .IsOptional();
 
-            Property(x => x.Email.StringValue)
-                .HasColumnName("Email")
-                .IsRequired()
-                .HasMaxLength(100);
-
-            Property(x => x.CPF.StringValue)
-                .HasColumnName("CPF")
-                .IsRequired()
-                .HasMaxLength(11)
-                .HasColumnAnnotation(
-                    IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("Acusado_CpfUnique", 1) { IsUnique = true }));
-
-            Property(c => c.Genero.StringValue)
-                .HasColumnName("Genero")
-                .IsRequired()
-                .HasMaxLength(15);
-
             Property(x => x.Nome)
                 .IsRequired();
 

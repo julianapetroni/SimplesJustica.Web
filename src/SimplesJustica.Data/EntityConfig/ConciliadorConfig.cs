@@ -15,11 +15,6 @@ namespace SimplesJustica.Data.EntityConfig
             Property(x => x.DataAtualizacao)
                 .IsOptional();
 
-            Property(x => x.Email.StringValue)
-                .HasColumnName("Email")
-                .IsRequired()
-                .HasMaxLength(100);
-
             Property(c => c.Nome)
                 .IsRequired()
                 .HasMaxLength(150);

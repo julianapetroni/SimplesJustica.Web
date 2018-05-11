@@ -16,7 +16,7 @@ namespace SimplesJustica.Domain.Entities
 
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
-        public CPF Cpf { get; set; }
+        public CPF CPF { get; set; }
         public DateTime Nascimento { get; set; }
         public Genero Genero { get; set; }
 

@@ -1,12 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure.Annotations;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using SimplesJustica.Data.EntityConfig;
 using SimplesJustica.Domain.Entities;
-using SimplesJustica.Domain.Entities.Base;
-using SimplesJustica.Domain.Enum;
-using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Data.Context
 {
@@ -49,6 +44,13 @@ namespace SimplesJustica.Data.Context
 
             #region Específico
 
+            //Complex type
+            modelBuilder.Configurations.Add(new CpfConfig());
+            modelBuilder.Configurations.Add(new CnpjConfig());
+            modelBuilder.Configurations.Add(new EmailConfig());
+            modelBuilder.Configurations.Add(new GeneroConfig());
+
+            //Entities
             modelBuilder.Configurations.Add(new AcusadoConfig());
             modelBuilder.Configurations.Add(new AutorConfig());
             modelBuilder.Configurations.Add(new ConciliadorConfig());

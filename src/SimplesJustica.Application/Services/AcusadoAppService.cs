@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 using AutoMapper;
 using SimplesJustica.Application.Helpers;
@@ -46,7 +46,7 @@ namespace SimplesJustica.Application.Services
             {
                 await unitOfWork.CommitAsync();
             }
-            catch
+            catch(Exception e)
             {
                 if (AcusadoExists(entity.Id))
                 {
@@ -57,6 +57,7 @@ namespace SimplesJustica.Application.Services
                 else
                 {
                     //TODO Log de erro
+                    Debug.Write(e.Message);
                 }
             }
 

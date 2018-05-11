@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection.Emit;
 using SimplesJustica.Domain.ValueObjects.Base;
 
 namespace SimplesJustica.Domain.ValueObjects
@@ -8,10 +7,16 @@ namespace SimplesJustica.Domain.ValueObjects
     {
         private string _stringValue;
 
-        public string StringValue
+        public string Formatado
         {
             get => TratarFormatoSaida(_stringValue);
-            set => _stringValue = TratarFormatoEntrada(value);
+            set => TratarFormatoEntrada(value);
+        }
+
+        public string SemFormatacao
+        {
+            get => _stringValue;
+            set => TratarFormatoEntrada(value);
         }
 
         protected CNPJ()
@@ -114,7 +119,7 @@ namespace SimplesJustica.Domain.ValueObjects
 
         public override string ToString()
         {
-            return StringValue;
+            return Formatado;
         }
     }
 }

@@ -53,7 +53,7 @@ namespace SimplesJustica.Domain.Tests.ValueObjects
             var cpf = new CPF(val);
 
             //act
-            var result = cpf.StringValue;
+            var result = cpf.Formatado;
 
             //assert
             Assert.AreEqual('.', result[3]);

@@ -49,6 +49,7 @@ namespace SimplesJustica.Data.Repositories.Base
         public TEntity Add(TEntity entity)
         {
             entity.DataCadastro = DateTime.Now;
+            entity.Id = Guid.NewGuid();
             return Db.Add(entity);
         }
 

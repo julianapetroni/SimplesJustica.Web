@@ -2,6 +2,7 @@
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using SimplesJustica.Domain.Entities;
+using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Data.EntityConfig
 {
@@ -16,19 +17,6 @@ namespace SimplesJustica.Data.EntityConfig
 
             Property(x => x.DataAtualizacao)
                 .IsOptional();
-
-            Property(x => x.Email.StringValue)
-                .HasColumnName("Email")
-                .IsRequired()
-                .HasMaxLength(100);
-
-            Property(x => x.Cpf.StringValue)
-                .HasColumnName("CPF")
-                .IsRequired()
-                .HasMaxLength(11)
-                .HasColumnAnnotation(
-                    IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("Autor_CpfUnique", 1) { IsUnique = true }));
 
             Property(c => c.Genero.StringValue)
                 .HasColumnName("Genero")

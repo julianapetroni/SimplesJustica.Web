@@ -51,7 +51,7 @@ namespace SimplesJustica.Domain.Tests.ValueObjects
             var cnpj = new CNPJ(val);
 
             //act
-            var result = cnpj.StringValue;
+            var result = cnpj.Formatado;
 
             //assert
             Assert.AreEqual('.', result[2]);

@@ -17,19 +17,6 @@ namespace SimplesJustica.Data.EntityConfig
             Property(x => x.DataAtualizacao)
                 .IsOptional();
 
-            Property(x => x.Email.StringValue)
-                .HasColumnName("Email")
-                .IsRequired()
-                .HasMaxLength(100);
-
-            Property(x => x.CNPJ.StringValue)
-                .HasColumnName("CNPJ")
-                .IsRequired()
-                .HasMaxLength(14)
-                .HasColumnAnnotation(
-                    IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("CnpjUnique", 1) { IsUnique = true }));
-
             Property(c => c.Nome)
                 .IsRequired();
 
