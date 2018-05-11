@@ -49,7 +49,7 @@ namespace SimplesJustica.Api.Controllers
             }
 
             await app.Update(acusado);
-            if (!app.Response.Successful)
+            if (app.Response.Successful.HasValue && !app.Response.Successful.Value)
             {
                 return StatusCode((HttpStatusCode)(int)(app.Response.StatusCode));
             }
@@ -65,9 +65,9 @@ namespace SimplesJustica.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            await app.Add(acusado);
+            acusado = await app.Add(acusado);
 
-            if (!app.Response.Successful)
+            if (app.Response.Successful.HasValue && !app.Response.Successful.Value)
             {
                 return StatusCode((HttpStatusCode)(int)(app.Response.StatusCode));
             }
