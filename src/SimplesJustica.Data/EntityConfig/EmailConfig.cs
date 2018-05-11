@@ -5,11 +5,11 @@ using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Data.EntityConfig
 {
-    public class EmailConfig : ComplexTypeConfiguration<Email>
+    internal class EmailConfig : ComplexTypeConfiguration<Email>
     {
-        public EmailConfig()
+        internal EmailConfig()
         {
-            this.Property(c => c.StringValue)
+            Property(c => c.StringValue)
                 .HasColumnName("Email")
                 .IsRequired()
                 .HasMaxLength(150)

@@ -1,11 +1,12 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 using SimplesJustica.Domain.Entities;
+using SimplesJustica.Domain.Entities.Base;
 
 namespace SimplesJustica.Data.EntityConfig
 {
-    internal class ConciliadorConfig : EntityTypeConfiguration<Conciliador>
+    public class ReuConfig : EntityTypeConfiguration<Reu>
     {
-        internal ConciliadorConfig()
+        public ReuConfig()
         {
             HasKey(x => x.Id);
 
@@ -16,16 +17,17 @@ namespace SimplesJustica.Data.EntityConfig
                 .IsOptional();
 
             Property(c => c.Nome)
-                .IsRequired()
-                .HasMaxLength(150);
+                .IsRequired();
 
             HasMany(c => c.Enderecos)
                 .WithRequired()
                 .HasForeignKey(c => c.UsuarioId);
 
             HasMany(c => c.Reclamacoes)
-                .WithOptional(c => c.Conciliador)
-                .HasForeignKey(c => c.ConciliadorId);
+                .WithRequired(c => c.Reu);
+
+            Map<Empresa>(c => c.Requires("Type").HasValue("Empresa").HasColumnType("varchar").HasMaxLength(7));
+            Map<Acusado>(c => c.Requires("Type").HasValue("Acusado"));
         }
     }
 }

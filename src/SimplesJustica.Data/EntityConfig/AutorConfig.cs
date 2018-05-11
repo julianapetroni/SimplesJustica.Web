@@ -1,8 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Infrastructure.Annotations;
-using System.Data.Entity.ModelConfiguration;
+﻿using System.Data.Entity.ModelConfiguration;
 using SimplesJustica.Domain.Entities;
-using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Data.EntityConfig
 {
@@ -38,6 +35,10 @@ namespace SimplesJustica.Data.EntityConfig
             HasMany(c => c.Enderecos)
                 .WithRequired()
                 .HasForeignKey(c => c.UsuarioId);
+
+            HasMany(c => c.Reclamacoes)
+                .WithRequired(c => c.Audor)
+                .HasForeignKey(c => c.AutorId);
         }
     }
 }

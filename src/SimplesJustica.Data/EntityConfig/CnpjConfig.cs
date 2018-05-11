@@ -5,9 +5,9 @@ using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Data.EntityConfig
 {
-    public class CnpjConfig : ComplexTypeConfiguration<CNPJ>
+    internal class CnpjConfig : ComplexTypeConfiguration<CNPJ>
     {
-        public CnpjConfig()
+        internal CnpjConfig()
         {
             Property(x => x.SemFormatacao)
                 .HasColumnName("CNPJ")

@@ -51,6 +51,7 @@ namespace SimplesJustica.Data.Context
             modelBuilder.Configurations.Add(new GeneroConfig());
 
             //Entities
+            modelBuilder.Configurations.Add(new ReuConfig());
             modelBuilder.Configurations.Add(new AcusadoConfig());
             modelBuilder.Configurations.Add(new AutorConfig());
             modelBuilder.Configurations.Add(new ConciliadorConfig());

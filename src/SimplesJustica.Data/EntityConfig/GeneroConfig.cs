@@ -3,11 +3,11 @@ using SimplesJustica.Domain.Enum;
 
 namespace SimplesJustica.Data.Context
 {
-    public class GeneroConfig : ComplexTypeConfiguration<Genero>
+    internal class GeneroConfig : ComplexTypeConfiguration<Genero>
     {
-        public GeneroConfig()
+        internal GeneroConfig()
         {
-            this.Property(x => x.StringValue)
+            Property(x => x.StringValue)
                 .IsRequired()
                 .HasColumnName("Genero")
                 .HasMaxLength(15);
