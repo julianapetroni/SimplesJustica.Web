@@ -16,9 +16,10 @@ namespace SimplesJustica.Web.Controllers
             this.app = app;
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            var model = await app.List();
+            return View(model);
         }
 
         public async Task<ActionResult> Details(Guid? id)
@@ -42,12 +43,11 @@ namespace SimplesJustica.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ReclamacaoModel reclamacaoModel)
+        public async Task<ActionResult> Create(RegistrarReclamacaoViewModel reclamacaoModel)
         {
             if (ModelState.IsValid)
             {
-                reclamacaoModel.Id = Guid.NewGuid();
-                app.Add(reclamacaoModel);
+                await app.Add(reclamacaoModel);
                 return RedirectToAction("Index");
             }
 

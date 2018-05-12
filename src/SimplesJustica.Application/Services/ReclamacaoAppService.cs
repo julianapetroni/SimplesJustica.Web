@@ -37,10 +37,10 @@ namespace SimplesJustica.Application.Services
             return Mapper.Map<ReclamacaoModel>(await unitOfWork.Reclamacoes.Get(id));
         }
 
-        public async Task<ReclamacaoModel> Add(ReclamacaoModel entity)
+        public async Task<ReclamacaoModel> Add(RegistrarReclamacaoViewModel entity)
         {
-            var Reclamacao = Mapper.Map<Reclamacao>(entity);
-            var add = unitOfWork.Reclamacoes.Add(Reclamacao);
+            var reclamacao = Mapper.Map<Reclamacao>(entity);
+            var add = unitOfWork.Reclamacoes.Add(reclamacao);
 
             try
             {
@@ -48,7 +48,7 @@ namespace SimplesJustica.Application.Services
             }
             catch (Exception e)
             {
-                if (ReclamacaoExists(entity.Id))
+                if (ReclamacaoExists(reclamacao.Id))
                 {
                     Response.StatusCode = StatusCode.Conflict;
                     Response.Successful = false;

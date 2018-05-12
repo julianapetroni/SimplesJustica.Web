@@ -9,6 +9,7 @@ namespace SimplesJustica.Application.AutoMapper
         internal ReclamacaoProfile()
         {
             CreateMap<Reclamacao, ReclamacaoModel>().ReverseMap();
+            CreateMap<RegistrarReclamacaoViewModel, Reclamacao>();
         }
     }
 }

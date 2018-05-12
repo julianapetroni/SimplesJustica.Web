@@ -11,7 +11,7 @@ namespace SimplesJustica.Application.Interfaces
         BaseResponse Response { get; }
         Task<List<ReclamacaoModel>> List();
         Task<ReclamacaoModel> Get(Guid id);
-        Task<ReclamacaoModel> Add(ReclamacaoModel entity);
+        Task<ReclamacaoModel> Add(RegistrarReclamacaoViewModel entity);
         Task Update(ReclamacaoModel entity);
         ReclamacaoModel Delete(ReclamacaoModel entity);
     }
