@@ -4,11 +4,11 @@ using SimplesJustica.Domain.Entities;
 
 namespace SimplesJustica.Application.AutoMapper
 {
-    internal class AcusadoProfile : Profile
+    internal class EmpresaProfile : Profile
     {
-        internal AcusadoProfile()
+        internal EmpresaProfile()
         {
-            CreateMap<Acusado, AcusadoModel>().ReverseMap();
+            CreateMap<Empresa, EmpresaModel>().ReverseMap();
         }
     }
 }

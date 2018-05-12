@@ -4,9 +4,9 @@ using SimplesJustica.Domain.Enum;
 
 namespace SimplesJustica.Application.AutoMapper
 {
-    public class GeneroProfile : Profile
+    internal class GeneroProfile : Profile
     {
-        public GeneroProfile()
+        internal GeneroProfile()
         {
             CreateMap<string, Genero>().ConvertUsing<GeneroTypeConverter>();
         }

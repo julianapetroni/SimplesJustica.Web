@@ -3,9 +3,9 @@ using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Application.AutoMapper
 {
-    public class EmailProfile : Profile
+    internal class EmailProfile : Profile
     {
-        public EmailProfile()
+        internal EmailProfile()
         {
             CreateMap<string, Email>().ConvertUsing<EmailTypeConverter>();
             CreateMap<Email, string>().ConvertUsing(email => email.StringValue);

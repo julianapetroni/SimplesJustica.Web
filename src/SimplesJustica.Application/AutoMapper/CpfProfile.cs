@@ -3,9 +3,9 @@ using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Application.AutoMapper
 {
-    public class CpfProfile : Profile
+    internal class CpfProfile : Profile
     {
-        public CpfProfile()
+        internal CpfProfile()
         {
             CreateMap<string, CPF>().ConvertUsing<CPFTypeConverter>();
             CreateMap<CPF, string>().ConstructUsing(cpf => cpf.Formatado);
