@@ -14,6 +14,10 @@ namespace SimplesJustica.IoC
             container.Register<SimplesJusticaContext>(Lifestyle.Scoped);
             container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
             container.Register<IAcusadoAppService, AcusadoAppService>(Lifestyle.Scoped);
+            container.Register<IAutorAppService, AutorAppService>(Lifestyle.Scoped);
+            container.Register<IConciliadorAppService, ConciliadorAppService>(Lifestyle.Scoped);
+            container.Register<IEmpresaAppService, EmpresaAppService>(Lifestyle.Scoped);
+            container.Register<IReclamacaoAppService, ReclamacaoAppService>(Lifestyle.Scoped);
         }
     }
 }

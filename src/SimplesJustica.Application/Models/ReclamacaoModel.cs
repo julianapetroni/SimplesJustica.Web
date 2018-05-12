@@ -1,6 +1,4 @@
 ﻿using System;
-using SimplesJustica.Domain.Entities;
-using SimplesJustica.Domain.Entities.Base;
 
 namespace SimplesJustica.Application.Models
 {
@@ -16,10 +14,13 @@ namespace SimplesJustica.Application.Models
         public Guid AutorId { get; set; }
         public virtual AutorModel Audor { get; set; }
 
-        public Guid ReuId { get; set; }
-        public virtual Reu Reu { get; set; }
+        public Guid? EmpresaId { get; set; }
+        public virtual EmpresaModel Reu { get; set; }
+
+        public Guid? AcusadoId { get; set; }
+        public virtual AcusadoModel Acusado { get; set; }
 
         public Guid? ConciliadorId { get; set; }
-        public virtual Conciliador Conciliador { get; set; }
+        public virtual ConciliadorModel Conciliador { get; set; }
     }
 }
