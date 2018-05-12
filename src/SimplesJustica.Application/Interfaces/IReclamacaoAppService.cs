@@ -6,7 +6,7 @@ using SimplesJustica.Application.Models;
 
 namespace SimplesJustica.Application.Interfaces
 {
-    public interface IReclamacaoAppService
+    public interface IReclamacaoAppService : IDisposable
     {
         BaseResponse Response { get; }
         Task<List<ReclamacaoModel>> List();
