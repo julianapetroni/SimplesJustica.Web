@@ -10,9 +10,11 @@ namespace SimplesJustica.Web.Controllers
     public class ReclamacaoController : Controller
     {
         private readonly IReclamacaoAppService app;
+        private readonly IReuAppService reuApp;
 
-        public ReclamacaoController(IReclamacaoAppService app)
+        public ReclamacaoController(IReclamacaoAppService app, IReuAppService reu)
         {
+            this.reuApp = reu;
             this.app = app;
         }
 
@@ -36,9 +38,14 @@ namespace SimplesJustica.Web.Controllers
             return View(reclamacaoModel);
         }
 
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
-            return View();
+            var listaReus = await reuApp.List();
+            var model = new RegistrarReclamacaoViewModel
+            {
+                Reus = listaReus
+            };
+            return View(model);
         }
 
         [HttpPost]
