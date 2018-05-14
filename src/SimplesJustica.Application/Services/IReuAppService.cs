@@ -3,15 +3,15 @@ using System.Threading.Tasks;
 using AutoMapper;
 using SimplesJustica.Application.Interfaces;
 using SimplesJustica.Application.Models;
-using SimplesJustica.Data.UnitOfWork;
+using SimplesJustica.Domain.Interfaces.UnitOfWork;
 
 namespace SimplesJustica.Application.Services
 {
     public class ReuAppService : IReuAppService
     {
-        private readonly UnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
-        public ReuAppService(UnitOfWork unitOfWork)
+        public ReuAppService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
