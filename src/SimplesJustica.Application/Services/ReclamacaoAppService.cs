@@ -38,11 +38,11 @@ namespace SimplesJustica.Application.Services
             return Mapper.Map<ReclamacaoModel>(await unitOfWork.Reclamacoes.Get(id));
         }
 
-        public async Task<ReclamacaoModel> Add(RegistrarReclamacaoViewModel model)
+        public async Task<ReclamacaoModel> Add(RegistrarReclamacaoViewModel model, Guid autorId)
         {
             var reclamacao = Mapper.Map<Reclamacao>(model);
             reclamacao.Status = StatusReclamacao.Aberto;
-            reclamacao.AutorId = Guid.Parse("49dae3c9-2c50-4579-8025-f8ad7f17eb57");
+            reclamacao.AutorId = autorId;
             var add = unitOfWork.Reclamacoes.Add(reclamacao);
 
             try
@@ -61,6 +61,7 @@ namespace SimplesJustica.Application.Services
                 {
                     //TODO Log de erro
                     Debug.Write(e.Message);
+                    throw;
                 }
             }
 

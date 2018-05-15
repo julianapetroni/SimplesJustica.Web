@@ -2,11 +2,13 @@
 using System.Threading.Tasks;
 using System.Net;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using SimplesJustica.Application.Interfaces;
 using SimplesJustica.Application.Models;
 
 namespace SimplesJustica.Web.Controllers
 {
+    [Authorize]
     public class ReclamacaoController : Controller
     {
         private readonly IReclamacaoAppService app;
@@ -38,6 +40,7 @@ namespace SimplesJustica.Web.Controllers
             return View(reclamacaoModel);
         }
 
+        [AllowAnonymous]
         public async Task<ActionResult> Create()
         {
             var listaReus = await reuApp.List();
@@ -54,7 +57,8 @@ namespace SimplesJustica.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                await app.Add(reclamacaoModel);
+                var userId = User.Identity.GetUserId();
+                await app.Add(reclamacaoModel, Guid.Parse(userId));
                 return RedirectToAction("Index");
             }
 
