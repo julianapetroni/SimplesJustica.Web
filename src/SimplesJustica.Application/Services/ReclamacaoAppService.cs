@@ -8,6 +8,7 @@ using SimplesJustica.Application.Helpers;
 using SimplesJustica.Application.Interfaces;
 using SimplesJustica.Application.Models;
 using SimplesJustica.Domain.Entities;
+using SimplesJustica.Domain.Enum;
 using SimplesJustica.Domain.Interfaces.UnitOfWork;
 
 namespace SimplesJustica.Application.Services
@@ -37,9 +38,11 @@ namespace SimplesJustica.Application.Services
             return Mapper.Map<ReclamacaoModel>(await unitOfWork.Reclamacoes.Get(id));
         }
 
-        public async Task<ReclamacaoModel> Add(RegistrarReclamacaoViewModel entity)
+        public async Task<ReclamacaoModel> Add(RegistrarReclamacaoViewModel model)
         {
-            var reclamacao = Mapper.Map<Reclamacao>(entity);
+            var reclamacao = Mapper.Map<Reclamacao>(model);
+            reclamacao.Status = StatusReclamacao.Aberto;
+            reclamacao.AutorId = Guid.Parse("49dae3c9-2c50-4579-8025-f8ad7f17eb57");
             var add = unitOfWork.Reclamacoes.Add(reclamacao);
 
             try

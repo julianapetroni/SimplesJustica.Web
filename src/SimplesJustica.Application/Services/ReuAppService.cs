@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using AutoMapper;
 using SimplesJustica.Application.Interfaces;
 using SimplesJustica.Application.Models;
@@ -19,9 +21,8 @@ namespace SimplesJustica.Application.Services
         public async Task<List<IdentificacaoBasicaModel>> List()
         {
             var model = new List<IdentificacaoBasicaModel>();
-            Mapper.Map(await unitOfWork.Acusados.List(), model);
             Mapper.Map(await unitOfWork.Empresas.List(), model);
-
+            
             return model;
         }
 

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Web.Mvc;
+using AutoMapper;
 using SimplesJustica.Application.Models;
 using SimplesJustica.Domain.Entities;
 
@@ -21,10 +22,6 @@ namespace SimplesJustica.Application.AutoMapper
             CreateMap<Empresa, ReuCompletoModel>()
                 .ForMember(entity => entity.Type, from => from.UseValue(ReuType.Empresa))
                 .ReverseMap();
-
-            CreateMap<Acusado, IdentificacaoBasicaModel>();
-
-            CreateMap<Empresa, IdentificacaoBasicaModel>();
         }
     }
 }
