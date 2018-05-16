@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplesJustica.Application"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplesJustica.CrossCutting", "src\SimplesJustica.CrossCutting\SimplesJustica.CrossCutting.csproj", "{76F20D3B-0A4C-4486-916A-2F0C5E36D396}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Identity", "SimplesJustica.Identity\SimplesJustica.Identity.csproj", "{4D3C47AA-091C-4FDD-8344-34D5E92D7552}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Identity", "src\SimplesJustica.Identity\SimplesJustica.Identity.csproj", "{4D3C47AA-091C-4FDD-8344-34D5E92D7552}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
