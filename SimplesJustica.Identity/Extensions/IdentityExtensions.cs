@@ -5,7 +5,7 @@ namespace Microsoft.AspNet.Identity
 {
     public static class IdentityExtensions
     {
-        public static Guid GetUserGuidId(this IIdentity identity)
+        public static Guid GetUserGuid(this IIdentity identity)
         {
             return Guid.Parse(identity.GetUserId());
         }

@@ -11,7 +11,7 @@ namespace SimplesJustica.Identity.Migrations
                 "dbo.Roles",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
+                        Id = c.String(nullable: false, maxLength: 128),
                         Name = c.String(nullable: false, maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id)
@@ -21,8 +21,8 @@ namespace SimplesJustica.Identity.Migrations
                 "dbo.UserRoles",
                 c => new
                     {
-                        UserId = c.Guid(nullable: false),
-                        RoleId = c.Guid(nullable: false),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
                 .ForeignKey("dbo.Roles", t => t.RoleId, cascadeDelete: true)
@@ -34,7 +34,7 @@ namespace SimplesJustica.Identity.Migrations
                 "dbo.Users",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
+                        Id = c.String(nullable: false, maxLength: 128),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -55,7 +55,7 @@ namespace SimplesJustica.Identity.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        UserId = c.Guid(nullable: false),
+                        UserId = c.String(nullable: false, maxLength: 128),
                         ClaimType = c.String(),
                         ClaimValue = c.String(),
                     })
@@ -69,7 +69,7 @@ namespace SimplesJustica.Identity.Migrations
                     {
                         LoginProvider = c.String(nullable: false, maxLength: 128),
                         ProviderKey = c.String(nullable: false, maxLength: 128),
-                        UserId = c.Guid(nullable: false),
+                        UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
                 .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)

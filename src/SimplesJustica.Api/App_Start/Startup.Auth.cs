@@ -8,7 +8,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using SimplesJustica.Api.Providers;
-using SimplesJustica.Api.Models;
+using SimplesJustica.Identity.Context;
 
 namespace SimplesJustica.Api
 {

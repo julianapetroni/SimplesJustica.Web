@@ -13,7 +13,7 @@ namespace SimplesJustica.Identity.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201805160254199_MigracaoInicial"; }
+            get { return "201805160405205_MigracaoInicial"; }
         }
         
         string IMigrationMetadata.Source

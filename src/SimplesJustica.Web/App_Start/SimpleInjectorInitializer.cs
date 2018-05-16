@@ -18,9 +18,7 @@ namespace SimplesJustica.Web.App_Start
             IoCBootstrapper.InitializeContainer(container);
 
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
-            
             container.Verify();
-            
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
         }
     }

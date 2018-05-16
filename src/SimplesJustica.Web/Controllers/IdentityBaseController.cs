@@ -62,7 +62,7 @@ namespace SimplesJustica.Web.Controllers
 
         protected bool HasPassword()
         {
-            var user = UserManager.FindById(User.Identity.GetUserGuidId());
+            var user = UserManager.FindById(User.Identity.GetUserId());
             if (user != null)
             {
                 return user.PasswordHash != null;
@@ -72,7 +72,7 @@ namespace SimplesJustica.Web.Controllers
 
         protected bool HasPhoneNumber()
         {
-            var user = UserManager.FindById(User.Identity.GetUserGuidId());
+            var user = UserManager.FindById(User.Identity.GetUserId());
             if (user != null)
             {
                 return user.PhoneNumber != null;
@@ -103,11 +103,11 @@ namespace SimplesJustica.Web.Controllers
         internal class ChallengeResult : HttpUnauthorizedResult
         {
             public ChallengeResult(string provider, string redirectUri)
-                : this(provider, redirectUri, Guid.Empty)
+                : this(provider, redirectUri, null)
             {
             }
 
-            public ChallengeResult(string provider, string redirectUri, Guid userId)
+            public ChallengeResult(string provider, string redirectUri, string userId)
             {
                 LoginProvider = provider;
                 RedirectUri = redirectUri;
@@ -116,12 +116,12 @@ namespace SimplesJustica.Web.Controllers
 
             public string LoginProvider { get; set; }
             public string RedirectUri { get; set; }
-            public Guid UserId { get; set; }
+            public string UserId { get; set; }
 
             public override void ExecuteResult(ControllerContext context)
             {
                 var properties = new AuthenticationProperties { RedirectUri = RedirectUri };
-                if (UserId != Guid.Empty)
+                if (!string.IsNullOrEmpty(UserId))
                 {
                     properties.Dictionary[XsrfKey] = UserId.ToString();
                 }

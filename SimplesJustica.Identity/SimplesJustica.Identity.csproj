@@ -93,14 +93,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Claim.cs" />
-    <Compile Include="Entities\ExternalLogin.cs" />
-    <Compile Include="Entities\Role.cs" />
-    <Compile Include="Entities\UserRoles.cs" />
     <Compile Include="Extensions\IdentityExtensions.cs" />
-    <Compile Include="Migrations\201805160254199_MigracaoInicial.cs" />
-    <Compile Include="Migrations\201805160254199_MigracaoInicial.Designer.cs">
-      <DependentUpon>201805160254199_MigracaoInicial.cs</DependentUpon>
+    <Compile Include="Migrations\201805160405205_MigracaoInicial.cs" />
+    <Compile Include="Migrations\201805160405205_MigracaoInicial.Designer.cs">
+      <DependentUpon>201805160405205_MigracaoInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ExternalLoginConfirmationViewModel.cs" />
@@ -112,10 +108,20 @@
     <Compile Include="Models\FactorViewModel.cs" />
     <Compile Include="Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\ForgotViewModel.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\ManageLoginsViewModel.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
+    <Compile Include="Models\AddExternalLoginBindingModel.cs" />
+    <Compile Include="Models\ChangePasswordBindingModel.cs" />
+    <Compile Include="Models\ExternalLoginViewModel.cs" />
+    <Compile Include="Models\ManageInfoViewModel.cs" />
+    <Compile Include="Models\RegisterBindingModel.cs" />
+    <Compile Include="Models\RegisterExternalBindingModel.cs" />
+    <Compile Include="Models\RemoveLoginBindingModel.cs" />
+    <Compile Include="Models\SetPasswordBindingModel.cs" />
+    <Compile Include="Models\UserInfoViewModel.cs" />
+    <Compile Include="Models\UserLoginInfoViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\ResetPasswordViewModel.cs" />
     <Compile Include="Models\SendCodeViewModel.cs" />
@@ -133,8 +139,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805160254199_MigracaoInicial.resx">
-      <DependentUpon>201805160254199_MigracaoInicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805160405205_MigracaoInicial.resx">
+      <DependentUpon>201805160405205_MigracaoInicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
