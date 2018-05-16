@@ -5,6 +5,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using SimplesJustica.Application.Interfaces;
+using SimplesJustica.Application.Models;
 using SimplesJustica.Identity.Entities;
 using SimplesJustica.Identity.Models;
 
@@ -12,6 +14,13 @@ namespace SimplesJustica.Web.Controllers
 {
     public class AccountController : IdentityBaseController
     {
+        private readonly IAutorAppService _autorService;
+
+        public AccountController(IAutorAppService autorService)
+        {
+            _autorService = autorService;
+        }
+
         #region .::Cadastro::.
 
         public ActionResult Register()
@@ -30,7 +39,11 @@ namespace SimplesJustica.Web.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
+                    var autorModel = new AutorModel
+                    {
+                        Email = user.Email
+                    };
+                    var autor = _autorService.Add(autorModel, Guid.Parse(user.Id));
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
