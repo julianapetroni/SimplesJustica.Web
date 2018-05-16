@@ -9,7 +9,6 @@ using SimplesJustica.Application.Interfaces;
 using SimplesJustica.Application.Models;
 using SimplesJustica.Domain.Entities;
 using SimplesJustica.Domain.Interfaces.UnitOfWork;
-using SimplesJustica.Identity.Entities;
 
 namespace SimplesJustica.Application.Services
 {

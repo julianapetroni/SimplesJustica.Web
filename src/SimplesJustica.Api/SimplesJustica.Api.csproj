@@ -228,16 +228,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SimplesJustica.Identity\SimplesJustica.Identity.csproj">
-      <Project>{4d3c47aa-091c-4fdd-8344-34d5e92d7552}</Project>
-      <Name>SimplesJustica.Identity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SimplesJustica.Application\SimplesJustica.Application.csproj">
       <Project>{962c71dd-c7a3-4e74-84aa-98c350c98c91}</Project>
       <Name>SimplesJustica.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SimplesJustica.Identity\SimplesJustica.Identity.csproj">
+      <Project>{5291968c-7627-47f9-9d39-3648098c8066}</Project>
+      <Name>SimplesJustica.Identity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimplesJustica.IoC\SimplesJustica.IoC.csproj">
-      <Project>{b36689af-287b-4440-9e35-639ce922a365}</Project>
+      <Project>{3b10d1b3-d15a-41f0-a76f-8fcb175bb6d2}</Project>
       <Name>SimplesJustica.IoC</Name>
     </ProjectReference>
   </ItemGroup>
@@ -255,7 +255,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2331</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

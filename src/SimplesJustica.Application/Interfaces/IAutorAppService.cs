@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using SimplesJustica.Application.Helpers;
 using SimplesJustica.Application.Models;
-using SimplesJustica.Identity.Entities;
 
 namespace SimplesJustica.Application.Interfaces
 {
