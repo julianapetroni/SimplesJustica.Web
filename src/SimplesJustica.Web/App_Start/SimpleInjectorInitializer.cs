@@ -1,13 +1,9 @@
-
 [assembly: WebActivator.PostApplicationStartMethod(typeof(SimplesJustica.Web.App_Start.SimpleInjectorInitializer), "Initialize")]
-
 namespace SimplesJustica.Web.App_Start
 {
     using System.Reflection;
     using System.Web.Mvc;
-
     using SimplesJustica.IoC;
-
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
@@ -27,6 +23,5 @@ namespace SimplesJustica.Web.App_Start
             
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
         }
-    
     }
 }

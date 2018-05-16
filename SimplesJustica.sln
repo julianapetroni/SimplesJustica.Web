@@ -25,9 +25,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Api", "src\S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Application", "2 Application", "{E5F0A273-6569-422B-BDDA-246C6EC087D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Application", "src\SimplesJustica.Application\SimplesJustica.Application.csproj", "{962C71DD-C7A3-4E74-84AA-98C350C98C91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplesJustica.Application", "src\SimplesJustica.Application\SimplesJustica.Application.csproj", "{962C71DD-C7A3-4E74-84AA-98C350C98C91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.CrossCutting", "src\SimplesJustica.CrossCutting\SimplesJustica.CrossCutting.csproj", "{76F20D3B-0A4C-4486-916A-2F0C5E36D396}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplesJustica.CrossCutting", "src\SimplesJustica.CrossCutting\SimplesJustica.CrossCutting.csproj", "{76F20D3B-0A4C-4486-916A-2F0C5E36D396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplesJustica.Identity", "SimplesJustica.Identity\SimplesJustica.Identity.csproj", "{4D3C47AA-091C-4FDD-8344-34D5E92D7552}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{76F20D3B-0A4C-4486-916A-2F0C5E36D396}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76F20D3B-0A4C-4486-916A-2F0C5E36D396}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76F20D3B-0A4C-4486-916A-2F0C5E36D396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3C47AA-091C-4FDD-8344-34D5E92D7552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3C47AA-091C-4FDD-8344-34D5E92D7552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3C47AA-091C-4FDD-8344-34D5E92D7552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3C47AA-091C-4FDD-8344-34D5E92D7552}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +86,7 @@ Global
 		{78A63122-3DD2-4E71-8622-5C005835D208} = {C4582EDC-643B-4A2D-B3FF-44975B08911C}
 		{962C71DD-C7A3-4E74-84AA-98C350C98C91} = {E5F0A273-6569-422B-BDDA-246C6EC087D0}
 		{76F20D3B-0A4C-4486-916A-2F0C5E36D396} = {76903422-4EDC-467E-8C0A-A7A3D0A81FC8}
+		{4D3C47AA-091C-4FDD-8344-34D5E92D7552} = {76903422-4EDC-467E-8C0A-A7A3D0A81FC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA63C5EB-553F-4239-89A2-F3C98026E228}

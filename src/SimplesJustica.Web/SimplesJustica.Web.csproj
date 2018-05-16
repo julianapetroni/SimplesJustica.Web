@@ -202,20 +202,17 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IdentityBaseController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReclamacaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -250,8 +247,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -279,9 +274,7 @@
     <Content Include="Views\Reclamacao\Edit.cshtml" />
     <Content Include="Views\Reclamacao\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -296,6 +289,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SimplesJustica.Identity\SimplesJustica.Identity.csproj">
+      <Project>{4d3c47aa-091c-4fdd-8344-34d5e92d7552}</Project>
+      <Name>SimplesJustica.Identity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimplesJustica.Application\SimplesJustica.Application.csproj">
       <Project>{962c71dd-c7a3-4e74-84aa-98c350c98c91}</Project>
       <Name>SimplesJustica.Application</Name>
