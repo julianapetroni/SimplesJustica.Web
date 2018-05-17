@@ -9,6 +9,12 @@
 
 </head>
 <body>
+    <header>
+        SIMPLES JUSTIÇA
+        <br />
+        <img src="~/img/courthouse.png" class="logo" />
+        <br />
+    </header>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -17,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Simples Justiça", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -48,3 +54,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

@@ -22,3 +22,43 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.bg-img {
+    /* The image used */
+    background-image: url("../img/martelo.jpeg");
+    min-height: 380px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.justified-right {
+    text-align: justify;
+    direction: rtl
+}
+
+header {
+    font-family: 'Asar', serif;
+    font-weight: bold;
+    font-size: 3em;
+    color: black;
+    text-align: center;
+    margin: 10px;
+}
+
+.logo {
+    max-width: auto;
+    max-height: 40px;
+    margin-top: 0.4em;
+}
