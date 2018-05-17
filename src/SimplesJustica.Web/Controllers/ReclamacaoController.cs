@@ -20,9 +20,9 @@ namespace SimplesJustica.Web.Controllers
             this.app = app;
         }
 
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            var model = await app.List();
+            var model = app.List(User.Identity.GetUserGuid());
             return View(model);
         }
 
@@ -57,8 +57,7 @@ namespace SimplesJustica.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userId = User.Identity.GetUserId();
-                await app.Add(reclamacaoModel, Guid.Parse(userId));
+                await app.Add(reclamacaoModel, User.Identity.GetUserGuid());
                 return RedirectToAction("Index");
             }
 

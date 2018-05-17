@@ -9,7 +9,7 @@ namespace SimplesJustica.Application.Interfaces
     public interface IReclamacaoAppService : IDisposable
     {
         BaseResponse Response { get; }
-        Task<List<ReclamacaoModel>> List();
+        List<ReclamacaoModel> List(Guid id);
         Task<ReclamacaoModel> Get(Guid id);
         Task<ReclamacaoModel> Add(RegistrarReclamacaoViewModel entity, Guid autorId);
         Task Update(ReclamacaoModel entity);

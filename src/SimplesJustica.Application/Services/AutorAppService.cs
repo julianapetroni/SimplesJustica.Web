@@ -9,6 +9,7 @@ using SimplesJustica.Application.Interfaces;
 using SimplesJustica.Application.Models;
 using SimplesJustica.Domain.Entities;
 using SimplesJustica.Domain.Interfaces.UnitOfWork;
+using SimplesJustica.Identity.Models;
 
 namespace SimplesJustica.Application.Services
 {
@@ -37,7 +38,7 @@ namespace SimplesJustica.Application.Services
             return Mapper.Map<AutorModel>(await unitOfWork.Autores.Get(id));
         }
 
-        public async Task<AutorModel> Add(AutorModel user, Guid id)
+        public async Task<AutorModel> Add(RegisterViewModel user, Guid id)
         {
             var Autor = Mapper.Map<Autor>(user);
             var add = unitOfWork.Autores.Add(Autor, id);

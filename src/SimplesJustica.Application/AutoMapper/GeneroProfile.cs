@@ -9,6 +9,15 @@ namespace SimplesJustica.Application.AutoMapper
         internal GeneroProfile()
         {
             CreateMap<string, Genero>().ConvertUsing<GeneroTypeConverter>();
+            CreateMap<Genero.GeneroType, Genero>().ConvertUsing<GeneroTypeEnumConverter>();
+        }
+    }
+
+    internal class GeneroTypeEnumConverter : ITypeConverter<Genero.GeneroType, Genero>
+    {
+        public Genero Convert(Genero.GeneroType source, Genero destination, ResolutionContext context)
+        {
+            return new Genero(source);
         }
     }
 

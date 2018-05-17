@@ -38,12 +38,16 @@ namespace SimplesJustica.Web.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                    var autorModel = new AutorModel
+                    var autor = await _autorService.Add(model, Guid.Parse(user.Id));
+                    if (autor == null)
                     {
-                        Email = user.Email
-                    };
-                    var autor = _autorService.Add(autorModel, Guid.Parse(user.Id));
+                        await UserManager.DeleteAsync(user);
+                        ModelState.AddModelError("", "Não foi possível cadastrar um novo usuário");
+                        return View(model);
+                    }
+
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

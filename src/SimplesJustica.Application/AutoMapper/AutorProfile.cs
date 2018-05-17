@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SimplesJustica.Domain.Entities;
+using SimplesJustica.Identity.Models;
 
 namespace SimplesJustica.Application.AutoMapper
 {
@@ -8,6 +9,7 @@ namespace SimplesJustica.Application.AutoMapper
         internal AutorProfile()
         {
             CreateMap<Autor, AutorProfile>().ReverseMap();
+            CreateMap<RegisterViewModel, Autor>();
         }
     }
 }

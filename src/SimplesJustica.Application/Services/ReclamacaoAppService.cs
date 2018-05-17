@@ -28,9 +28,10 @@ namespace SimplesJustica.Application.Services
             _response = new BaseResponse();
         }
 
-        public async Task<List<ReclamacaoModel>> List()
+        public List<ReclamacaoModel> List(Guid id)
         {
-            return Mapper.Map<List<ReclamacaoModel>>(await unitOfWork.Reclamacoes.List());
+            var result = unitOfWork.Reclamacoes.Find(c => c.AutorId == id).ToList();
+            return Mapper.Map<List<ReclamacaoModel>>(result);
         }
 
         public async Task<ReclamacaoModel> Get(Guid id)
