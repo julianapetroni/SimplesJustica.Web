@@ -70,7 +70,7 @@ namespace SimplesJustica.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ReclamacaoModel reclamacaoModel = await app.Get(id.Value);
+            var reclamacaoModel = await app.GetForUpdate(id.Value);
             if (reclamacaoModel == null)
             {
                 return HttpNotFound();
@@ -80,11 +80,11 @@ namespace SimplesJustica.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(ReclamacaoModel reclamacaoModel)
+        public async Task<ActionResult> Edit(ReclamacaoUpdateViewModel reclamacaoModel)
         {
             if (ModelState.IsValid)
             {
-                app.Update(reclamacaoModel);
+                await app.Update(reclamacaoModel);
                 return RedirectToAction("Index");
             }
             return View(reclamacaoModel);

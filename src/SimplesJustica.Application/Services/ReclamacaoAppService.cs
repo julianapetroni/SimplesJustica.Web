@@ -39,6 +39,11 @@ namespace SimplesJustica.Application.Services
             return Mapper.Map<ReclamacaoModel>(await unitOfWork.Reclamacoes.Get(id));
         }
 
+        public async Task<ReclamacaoUpdateViewModel> GetForUpdate(Guid id)
+        {
+            return Mapper.Map<ReclamacaoUpdateViewModel>(await unitOfWork.Reclamacoes.Get(id));
+        }
+
         public async Task<ReclamacaoModel> Add(RegistrarReclamacaoViewModel model, Guid autorId)
         {
             var reclamacao = Mapper.Map<Reclamacao>(model);
@@ -69,16 +74,22 @@ namespace SimplesJustica.Application.Services
             return Mapper.Map<ReclamacaoModel>(add);
         }
 
-        public async Task Update(ReclamacaoModel entity)
+        public async Task Update(ReclamacaoUpdateViewModel entity)
         {
-            var Reclamacao = Mapper.Map<Reclamacao>(entity);
-            unitOfWork.Reclamacoes.Update(Reclamacao);
+            var reclamacao = await unitOfWork.Reclamacoes.Get(entity.Id);
+            if (reclamacao == null)
+            {
+                return;
+            }
+
+            Mapper.Map(entity, reclamacao);
+            unitOfWork.Reclamacoes.Update(reclamacao);
 
             try
             {
                 await unitOfWork.CommitAsync();
             }
-            catch
+            catch(Exception e)
             {
                 if (!ReclamacaoExists(entity.Id))
                 {
@@ -93,11 +104,11 @@ namespace SimplesJustica.Application.Services
             }
         }
 
-        public ReclamacaoModel Delete(ReclamacaoModel entity)
+        public async Task<ReclamacaoModel> Delete(ReclamacaoModel entity)
         {
-            var Reclamacao = Mapper.Map<Reclamacao>(entity);
-            var delete = unitOfWork.Reclamacoes.Delete(Reclamacao);
-            unitOfWork.CommitAsync();
+            var reclamacao = await unitOfWork.Reclamacoes.Get(entity.Id);
+            var delete = unitOfWork.Reclamacoes.Delete(reclamacao);
+            await unitOfWork.CommitAsync();
             return Mapper.Map<ReclamacaoModel>(delete);
         }
 

@@ -25,6 +25,10 @@ namespace SimplesJustica.Data.EntityConfig
 
             Property(c => c.Status)
                 .IsRequired();
+
+            HasRequired(c => c.Reu)
+                .WithMany(c => c.Reclamacoes)
+                .HasForeignKey(c => c.ReuId);
         }
     }
 }

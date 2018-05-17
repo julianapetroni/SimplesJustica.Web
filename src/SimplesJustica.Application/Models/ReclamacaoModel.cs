@@ -16,7 +16,7 @@ namespace SimplesJustica.Application.Models
         public virtual AutorModel Audor { get; set; }
 
         public Guid? ReuId { get; set; }
-        public Reu Reu { get; set; }
+        public ReuModel Reu { get; set; }
 
         public Guid? ConciliadorId { get; set; }
         public virtual ConciliadorModel Conciliador { get; set; }

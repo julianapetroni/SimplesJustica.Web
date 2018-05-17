@@ -7,6 +7,10 @@ namespace SimplesJustica.Data.EntityConfig
     {
         internal EmpresaConfig()
         {
+            ToTable("Empresa");
+
+            HasKey(x => x.Id);
+
             Property(c => c.InscricaoEstadual)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -17,6 +21,20 @@ namespace SimplesJustica.Data.EntityConfig
             Property(c => c.NomeFantasia)
                 .IsRequired()
                 .HasMaxLength(300);
+
+            Property(x => x.DataCadastro)
+                .IsRequired();
+
+            Property(x => x.DataAtualizacao)
+                .IsOptional();
+
+            Property(c => c.Nome)
+                .IsRequired();
+
+            //Relacionamentos
+            HasMany(c => c.Enderecos)
+                .WithRequired()
+                .HasForeignKey(c => c.UsuarioId);
         }
     }
 }

@@ -8,12 +8,13 @@ namespace SimplesJustica.Application.AutoMapper
     {
         internal GeneroProfile()
         {
-            CreateMap<string, Genero>().ConvertUsing<GeneroTypeConverter>();
-            CreateMap<Genero.GeneroType, Genero>().ConvertUsing<GeneroTypeEnumConverter>();
+            CreateMap<string, Genero>().ConvertUsing<StringToGeneroConverter>();
+            CreateMap<Genero.GeneroType, Genero>().ConvertUsing<GeneroTypeToGeneroConverter>();
+            CreateMap<Genero, Genero.GeneroType>().ConvertUsing<GeneroToGeneroTypeConverter>();
         }
     }
 
-    internal class GeneroTypeEnumConverter : ITypeConverter<Genero.GeneroType, Genero>
+    internal class GeneroTypeToGeneroConverter : ITypeConverter<Genero.GeneroType, Genero>
     {
         public Genero Convert(Genero.GeneroType source, Genero destination, ResolutionContext context)
         {
@@ -21,7 +22,15 @@ namespace SimplesJustica.Application.AutoMapper
         }
     }
 
-    internal class GeneroTypeConverter : ITypeConverter<string, Genero>
+    internal class GeneroToGeneroTypeConverter : ITypeConverter<Genero, Genero.GeneroType>
+    {
+        public Genero.GeneroType Convert(Genero source, Genero.GeneroType destination, ResolutionContext context)
+        {
+            return source.TypeValue;
+        }
+    }
+
+    internal class StringToGeneroConverter : ITypeConverter<string, Genero>
     {
         public Genero Convert(string source, Genero destination, ResolutionContext context)
         {

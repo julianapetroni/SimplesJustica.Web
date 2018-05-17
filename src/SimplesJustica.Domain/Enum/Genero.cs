@@ -45,5 +45,7 @@ namespace SimplesJustica.Domain.Enum
                 _genero = value.ParseEnum<GeneroType>();
             }
         }
+
+        public GeneroType TypeValue => _genero;
     }
 }
