@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 using SimplesJustica.Domain.Enum;
+using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Data.Context
 {

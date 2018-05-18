@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using SimplesJustica.Domain.Enum;
+using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Identity.Models
 {

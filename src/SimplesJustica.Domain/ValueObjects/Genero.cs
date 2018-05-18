@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SimplesJustica.Domain.Enum
+namespace SimplesJustica.Domain.ValueObjects
 {
     public class Genero
     {

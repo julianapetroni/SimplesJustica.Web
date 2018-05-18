@@ -1,6 +1,7 @@
 ﻿using System;
 using AutoMapper;
 using SimplesJustica.Domain.Enum;
+using SimplesJustica.Domain.ValueObjects;
 
 namespace SimplesJustica.Application.AutoMapper
 {

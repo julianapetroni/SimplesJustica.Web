@@ -44,7 +44,7 @@
     <Compile Include="Entities\Reclamacao.cs" />
     <Compile Include="Entities\Base\Reu.cs" />
     <Compile Include="Entities\Base\Usuario.cs" />
-    <Compile Include="Enum\Genero.cs" />
+    <Compile Include="ValueObjects\Genero.cs" />
     <Compile Include="Enum\LinhaDeNegocio.cs" />
     <Compile Include="Enum\StatusReclamacao.cs" />
     <Compile Include="Interfaces\Repositories\Base\IRepository.cs" />
